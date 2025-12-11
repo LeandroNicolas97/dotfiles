@@ -1,0 +1,11 @@
+brave-bin
+fzf-git
+fzf-git-debug
+hyprsome-git
+hyprsome-git-debug
+python-imageio-ffmpeg
+python-screeninfo
+spotify
+waypaper
+yay
+yay-debug

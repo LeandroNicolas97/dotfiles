@@ -1,0 +1,126 @@
+/* Dracula Theme Transparente */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(40, 42, 54, 0.85);
+    color: #f8f8f2;
+    border-bottom: 2px solid rgba(189, 147, 249, 0.5);
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 12px;
+    color: #6272a4;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+    color: #bd93f9;
+    background: rgba(189, 147, 249, 0.15);
+    border-bottom: 3px solid #bd93f9;
+}
+
+#workspaces button:hover {
+    background: rgba(98, 114, 164, 0.3);
+    color: #f8f8f2;
+}
+
+#workspaces button.urgent {
+    color: #ff5555;
+    border-bottom: 3px solid #ff5555;
+}
+
+/* Window */
+#window {
+    color: #f8f8f2;
+    font-weight: 500;
+}
+
+/* Clock - Destacado */
+#clock {
+    padding: 0 15px;
+    background: rgba(189, 147, 249, 0.3);
+    color: #f8f8f2;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 3px;
+    border: 1px solid rgba(189, 147, 249, 0.5);
+}
+
+/* Módulos individuales */
+#pulseaudio {
+    color: #ffb86c;
+}
+
+#network {
+    color: #8be9fd;
+}
+
+#cpu {
+    color: #50fa7b;
+}
+
+#memory {
+    color: #ff79c6;
+}
+
+#battery {
+    color: #f1fa8c;
+}
+
+#battery.charging {
+    color: #50fa7b;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffb86c;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff5555;
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    50% {
+        background: rgba(255, 85, 85, 0.3);
+    }
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.7;
+    }
+}
+
+#network.disconnected {
+    color: #ff5555;
+}
+
+#pulseaudio.muted {
+    color: #6272a4;
+}
+
+/* Tray */
+#tray {
+    background: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: rgba(255, 121, 198, 0.3);
+    border-radius: 8px;
+}

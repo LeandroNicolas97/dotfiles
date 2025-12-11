@@ -1,0 +1,19 @@
+# Archivos temporales
+*.backup
+*.bak
+*.swp
+*.tmp
+*~
+
+# Archivos sensibles
+*_history
+*.log
+.zsh_history
+
+# Directorios de caché
+__pycache__/
+*.cache/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

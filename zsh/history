@@ -1,0 +1,954 @@
+: 1765415440:39;# Crear configuración bÃ�sica de zsh\
+nvim ~/.zshrc
+: 1765415490:0;source ~/.zshrc
+: 1765415494:0;ls
+: 1765415498:0;cd
+: 1765415509:0;# El prompt debería cambiar y verse con colores\
+# Prueba el autocompletado\
+ls [TAB]\
+\
+# Prueba el historial con flechas arriba/abajo
+: 1765415520:0;# Instalar Oh-My-Zsh\
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"\
+\
+# Te preguntarÃ� si quieres que sea tu shell por defecto, di "Yes"
+: 1765415545:0;a
+: 1765415546:0;ls
+: 1765415575:0;nvim 
+: 1765415591:0;nvim ~/.zshrc
+: 1765415641:0;source ~/.zshrc
+: 1765415662:0;# Instalar Starship\
+sudo pacman -S starship\
+\
+# Agregar al final de ~/.zshrc\
+echo
+: 1765415733:3;# Instalar Starship\
+sudo pacman -S starship\
+\
+# Agregar al final de ~/.zshrc\
+echo 'eval "$(starship init zsh)"' >> ~/.zshrc\
+\
+# Recargar\
+source ~/.zshrc
+: 1765415745:0;# Crear archivo de configuración de Starship\
+mkdir -p ~/.config\
+nvim ~/.config/starship.toml
+: 1765415773:0;source ~/.zshrc
+: 1765415775:0;cd
+: 1765415778:0;cd .config/hypr
+: 1765415782:0;git status
+: 1765415798:0;cd .config/hypr
+: 1765415806:0;git status
+: 1765415954:0;source ~/.zshrc
+: 1765415887:121;# zsh-autosuggestions (sugerencias mientras escribes en gris)\
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions\
+\
+# zsh-syntax-highlighting (resalta comandos verdes=vÃ�lidos, rojos=invÃ�lidos)\
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting\
+\
+# Editar ~/.zshrc para activar plugins\
+nvim ~/.zshrc
+: 1765416056:0;which starship\
+# Debe mostrar: /usr/bin/starship
+: 1765416061:0;grep starship ~/.zshrc\
+# Debe mostrar: eval "$(starship init zsh)"
+: 1765416101:0;ls
+: 1765416108:0;cd .config/hypr
+: 1765416157:0;cd
+: 1765416158:0;nvim ~/.config/starship.toml
+: 1765416174:0;source ~/.zshrc
+: 1765416178:0;cd .config/hypr
+: 1765416188:0;cd
+: 1765416204:0;ls
+: 1765416208:0;cd .config/hypr
+: 1765416276:0;cd
+: 1765416281:0;nvim ~/.config/starship.toml
+: 1765416303:0;source ~/.zshrc
+: 1765416305:0;la
+: 1765416308:0;ls
+: 1765416310:0;lsa
+: 1765416324:0;ls
+: 1765416331:0;cd .config/hypr
+: 1765416339:0;cd
+: 1765416364:0;nvim ~/.config/starship.toml
+: 1765416406:0;source ~/.zshrc
+: 1765416417:0;cd 
+: 1765416433:0;source ~/.zshrc
+: 1765416578:0;cd .config/hypr
+: 1765417035:0;source ~/.zshrc
+: 1765417237:0;cd .config/hypr
+: 1765417238:0;ls
+: 1765417245:0;nvim ~/.config/starship.toml
+: 1765417381:0;nvim ~/.zshrc
+: 1765417408:0;source ~/.zshrc
+: 1765417418:0;nvim ~/.zshrc
+: 1765417516:0;# Buscar archivos de FZF\
+pacman -Ql fzf | grep -E '(key-bindings|completion)'
+: 1765417540:0;# Ver todos los archivos instalados por fzf\
+pacman -Ql fzf
+: 1765417552:0;# Buscar archivos .zsh de FZF\
+find /usr -name "*fzf*.zsh" 2>/dev/null
+: 1765417561:0;nvim ~/.zshrc
+: 1765417582:0;source ~/.zshrc
+: 1765417600:0;nvim ~/.zshrc
+: 1765417622:0;# Ver todos los archivos instalados por fzf\
+pacman -Ql fzf
+: 1765417636:0;# Buscar archivos .zsh de FZF\
+find /usr -name "*fzf*.zsh" 2>/dev/null
+: 1765417704:0;nvim ~/.zshrc
+: 1765417742:0;source ~/.zshrc
+: 1765417746:0;nvim ~/.zshrc
+: 1765417759:0;source ~/.zshrc
+: 1765417796:0;cd .config/hypr
+: 1765417797:0;ls
+: 1765417885:0;# Crear directorio para las imÃ�genes de Kitty\
+mkdir -p ~/.config/kitty/\
+\
+# Copiar tu imagen (ajusta la ruta)\
+cp ~/ImÃ�genes/tu-imagen.png ~/.config/kitty/background.png
+: 1765417903:0;cd .config/kitty
+: 1765417904:0;ls
+: 1765417921:0;cd
+: 1765417927:0;cd Descargas
+: 1765417927:0;ls
+: 1765417958:0;cp ~/Descargas/casa-kame-de-dragon-ball-3963.webp ~/.config/kitty/background.png
+: 1765417974:0;ls
+: 1765417993:0;nvim ~/.config/kitty/kitty.conf
+: 1765418095:0;ls
+: 1765418098:0;nvim
+: 1765418248:0;nvim ~/.config/kitty/kitty.conf
+: 1765418263:0;source ~/.zshrc
+: 1765419308:0;hypaper
+: 1765419318:0;hyprpaper
+: 1765419541:0;cd .config
+: 1765419542:0;ls
+: 1765419545:0;lsa
+: 1765419559:0;s
+: 1765419559:0;ls
+: 1765419565:0;ranger
+: 1765419574:0;sudo pacman -S ranger
+: 1765419580:0;ranger
+: 1765419696:0;hyprpaper
+: 1765419701:0;cd .config
+: 1765419702:0;ls
+: 1765419722:0;ranger --version
+: 1765419954:0;cd .config
+: 1765419955:0;ls
+: 1765419958:0;cd ranger
+: 1765419958:0;ls
+: 1765420022:0;cd .config
+: 1765420023:0;ls
+: 1765420025:0;cd ranger
+: 1765420047:0;nano rc.conf
+: 1765420057:0;ls
+: 1765420058:0;nvim
+: 1765420138:0;# Instalar ranger y herramientas de preview\
+sudo pacman -S ranger ueberzug python-pillow ffmpegthumbnailer poppler highlight\
+\
+# O si prefieres ueberzugpp (mÃ�s moderno)\
+yay -S ueberzugpp
+: 1765420192:0;# Crear estructura de config\
+ranger --copy-config=all\
+\
+# Esto crea:\
+# ~/.config/ranger/rc.conf\
+# ~/.config/ranger/rifle.conf\
+# ~/.config/ranger/scope.sh
+: 1765420208:0;cd .config/ranger
+: 1765420209:0;ls
+: 1765420255:0;nvim ~/.config/ranger/rc.conf
+: 1765420280:0;chmod +x ~/.config/ranger/scope.sh
+: 1765420448:0;# Generar todos los archivos de configuración de ranger\
+ranger --copy-config=all\
+\
+# Verificar que se crearon\
+ls -la ~/.config/ranger/
+: 1765420455:0;# Descargar scope.sh oficial de ranger\
+curl -o ~/.config/ranger/scope.sh https://raw.githubusercontent.com/ranger/ranger/master/ranger/data/scope.sh\
+\
+# Dar permisos de ejecución\
+chmod +x ~/.config/ranger/scope.sh
+: 1765420463:0;nvim ~/.config/ranger/scope.sh
+: 1765420490:0;chmod +x ~/.config/ranger/scope.sh
+: 1765420498:0;nvim ~/.config/ranger/rc.conf
+: 1765420537:0;ranger ~/Pictures\
+# O cualquier carpeta con imÃ�genes
+: 1765420545:0;ranger
+: 1765420566:3;sudo pacman -S file highlight ffmpegthumbnailer poppler
+: 1765420595:0;# 1. Verificar que ranger estÃ� instalado\
+ranger --version\
+\
+# 2. Ver qué archivos de config existen\
+ls -la ~/.config/ranger/\
+\
+# 3. Ver la configuración actual de preview\
+ranger --list-unused-keys | grep preview\
+\
+# 4. Probar si kitty puede mostrar imÃ�genes\
+kitty +kitten icat /usr/share/pixmaps/archlinux-logo.png
+: 1765420633:0;ranger
+: 1765420658:0;# Ver tu rc.conf actual\
+cat ~/.config/ranger/rc.conf\
+\
+# Probar si kitty muestra imÃ�genes\
+kitty +kitten icat /usr/share/pixmaps/archlinux-logo.png\
+\
+# Si no existe esa imagen, prueba con otra\
+find ~/Pictures -type f -name "*.jpg" -o -name "*.png" | head -1\
+# Luego usa esa ruta con kitty +kitten icat
+: 1765420738:0;kitty +kitten icat ~/Descargas/casa-kame-de-dragon-ball-3963.webp
+: 1765420763:0;# Instalar ueberzug\
+yay -S python-ueberzug\
+\
+# Cambiar rc.conf\
+nvim ~/.config/ranger/rc.conf
+: 1765420776:0;ranger
+: 1765420836:0;# Instalar todas las dependencias necesarias\
+sudo pacman -S file highlight imagemagick ffmpegthumbnailer poppler
+: 1765420903:0;# Cerrar todos los ranger abiertos\
+killall ranger\
+\
+# Abrir ranger con verbose para ver errores\
+ranger --debug ~/Pictures 2>&1 | tee ranger_debug.log\
+\
+# Una vez dentro, verifica:\
+# 1. ¿Ves preview de texto en otros archivos?\
+# 2. ¿Ves el nombre del archivo .jpg en el panel derecho?
+: 1765420918:0;ranger
+: 1765420966:0;export RANGER_LOAD_DEFAULT_RC=false
+: 1765420969:0;ranger
+: 1765421008:0;which kitty\
+echo $TERM\
+\
+# Debería decir: xterm-kitty
+: 1765421036:0;ranger --debug ~/Descargas
+: 1765421069:0;# 1. Configurar kitty para usar el TERM correcto\
+nvim ~/.config/kitty/kitty.conf
+: 1765421091:0;# 2. Verificar que ahora estÃ� correcto\
+echo $TERM\
+# Debería decir: xterm-kitty
+: 1765421114:0;# 1. Configurar kitty para usar el TERM correcto\
+nvim ~/.config/kitty/kitty.conf
+: 1765421134:0;# Forzar TERM para esta sesión\
+export TERM=xterm-kitty
+: 1765421139:0;# 2. Verificar que ahora estÃ� correcto\
+echo $TERM\
+# Debería decir: xterm-kitty
+: 1765421146:0;# Si usas bash\
+echo 'export TERM=xterm-kitty' >> ~/.bashrc\
+source ~/.bashrc\
+\
+# Si usas zsh\
+echo 'export TERM=xterm-kitty' >> ~/.zshrc\
+source ~/.zshrc
+: 1765421159:0;echo $TERM
+: 1765421191:0;ranger
+: 1765421590:0;curl -fsSL https://claude.ai/install.sh | bash
+: 1765423854:0;yay -S waypaper
+: 1765423991:0;fastfetch
+: 1765424006:0;sudo pacman -S fastfetch
+: 1765424014:0;fastfetch
+: 1765424016:0;ls
+: 1765424023:0;fastfetch
+: 1765424034:0;la
+: 1765424043:0;ranger
+: 1765424189:0;fastfetch
+: 1765424449:0;sudo pacman -S neofetch\
+   # o la versión mÃ�s rÃ�pida\
+   sudo pacman -S fastfetch
+: 1765424460:0;sudo pacman -S chafa
+: 1765424467:0;yay -S viu  # desde AUR
+: 1765424491:0;# Actualiza la lista de mirrors\
+sudo pacman-mirrors --fasttrack\
+\
+# O actualiza la base de datos\
+sudo pacman -Syy
+: 1765424513:0;# Primero actualiza yay\
+yay -Syy\
+\
+# Intenta instalar viu nuevamente\
+yay -S viu
+: 1765424543:0;# Descarga una imagen de prueba\
+curl -o /tmp/test.png https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.png\
+\
+# Visualízala con viu\
+viu /tmp/test.png
+: 1765424565:0;cd Descargas
+: 1765424567:0;ls
+: 1765424599:0;# Instala herramientas de conversión si no las tienes\
+sudo pacman -S imagemagick\
+\
+# Convierte webp a png\
+convert casa-kame-de-dragon-ball-3963.webp casa-kame.png\
+\
+# Ahora visualízala\
+viu casa-kame.png
+: 1765424610:0;sudo pacman -S chafa\
+chafa --format=kitty casa-kame-de-dragon-ball-3963.webp
+: 1765424649:0;sudo pacman -S fastfetch
+: 1765424657:0;mkdir -p ~/.config/fastfetch\
+cp ~/Descargas/casa-kame-de-dragon-ball-3963.webp ~/.config/fastfetch/logo.webp
+: 1765424662:0;nano ~/.config/fastfetch/config.jsonc
+: 1765424687:0;nvim ~/.config/fastfetch/config.jsonc
+: 1765424703:0;fastfetch
+: 1765424722:0;echo '' >> ~/.zshrc\
+echo '# Mostrar info del sistema con la casa de Kame' >> ~/.zshrc\
+echo 'fastfetch' >> ~/.zshrc
+: 1765424747:0;cd
+: 1765424753:0;cd .config/fastfetch
+: 1765424754:0;ls
+: 1765424755:0;nvim
+: 1765425169:0;cd Descargas
+: 1765425169:0;ls
+: 1765425189:0;ranger
+: 1765425233:0;mkdir -p ~/.config/fastfetch/logos\
+\
+# Copia las 5 imÃ�genes que elegiste\
+cp ~/Descargas/casa-kame-de-dragon-ball-3963.webp ~/.config/fastfetch/logos/kame.webp\
+cp ~/Descargas/33-335200_buscar-con-google-killua-zoldyck.png ~/.config/fastfetch/logos/killua1.png\
+cp ~/Descargas/png-transparent-killua-zoldyck-hunter-x-hunter-gon-freecss-kurapika-hisoka-anime-purple-black-hair-violet.png ~/.config/fastfetch/logos/killua2.png\
+cp ~/Descargas/goku-black-v8-son-goku-thumbnail.jpg ~/.config/fastfetch/logos/goku-black.jpg\
+cp ~/Descargas/f4aad5832686513533e22565c223021e.jpg ~/.config/fastfetch/logos/goku.jpg
+: 1765425240:0;ls ~/.config/fastfetch/logos/
+: 1765425268:0;nvim ~/.zshrc
+: 1765425309:0;source ~/.zshrc
+: 1765425388:0;nvim ~/.zshrc
+: 1765425408:0;source ~/.zshrc
+: 1765425421:0;nvim ~/.zshrc
+: 1765425502:0;source ~/.zshrc
+: 1765425523:0;ls -la ~/.config/fastfetch/logos/
+: 1765425529:0;find ~/.config/fastfetch/logos/ -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.webp" \) | shuf -n 1
+: 1765425556:0;ranger
+: 1765425588:0;# Fastfetch con logo aleatorio\
+LOGO_DIR="$HOME/.config/fastfetch/logos"\
+LOGO_FILE="$HOME/.config/fastfetch/logo.webp"\
+\
+# Eliminar logo anterior\
+rm -f "$LOGO_FILE"\
+\
+# Seleccionar una imagen aleatoria\
+RANDOM_LOGO=$(find "$LOGO_DIR" -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.webp" \) | shuf -n 1)\
+\
+# Copiar la nueva imagen\
+cp "$RANDOM_LOGO" "$LOGO_FILE"\
+\
+# Ejecutar fastfetch\
+fastfetch
+: 1765425595:0;source ~/.zshrc
+: 1765425608:0;nvim ~/.zshrc
+: 1765425621:0;source ~/.zshrc
+: 1765425655:0;cd .config/kitty
+: 1765425656:0;ls
+: 1765425656:0;nvim
+: 1765425778:0;ranger
+: 1765425956:0;cd Descargas
+: 1765425956:0;ls
+: 1765425967:0;rm -rf 33-335200_buscar-con-google-killua-zoldyck.png
+: 1765425967:0;ls
+: 1765425974:0;ranger
+: 1765425991:0;rm -rf images.png
+: 1765425992:0;ls
+: 1765425993:0;nvim
+: 1765426054:0;cp ~/Descargas/killua-sin-fondo.png ~/.config/fastfetch/logos/killua-sin-fondo.png
+: 1765426061:0;fastfetch --logo ~/Descargas/killua-sin-fondo.png --logo-type kitty --logo-width 35 --logo-height 20
+: 1765426243:0;cd Descargas
+: 1765426244:0;ls
+: 1765426247:0;rm -rf killua-sin-fondo.png
+: 1765426248:0;ls
+: 1765426279:0;cd Descargas
+: 1765426280:0;ls
+: 1765426307:0;cp ~/Descargas/png-transparent-shenron-dragon-ball-heroes-goku-dende-gotenks-dragon-ball-z-dragon-ball-z-shenron-dragon-fictional-character-cartoon-thumbnail.png ~/.config/fastfetch/logos/shenron.png
+: 1765492192:0;# Instalar dependencias necesarias\
+sudo pacman -S git python-pip libusb avr-gcc avr-libc arm-none-eabi-gcc arm-none-eabi-newlib\
+\
+# Clonar el repositorio de QMK\
+git clone https://github.com/qmk/qmk_firmware.git\
+cd qmk_firmware\
+\
+# Instalar QMK CLI\
+python3 -m pip install --user qmk\
+\
+# Agregar a tu PATH si no estÃ� (añadir a ~/.zshrc)\
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc\
+source ~/.zshrc\
+\
+# Configurar QMK\
+qmk setup
+: 1765492299:0;# Navegar al directorio de keymaps de Sofle\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/\
+\
+# Clonar tu configuración\
+git clone https://github.com/LeandroNicolas97/sofle-qmk.git leandro\
+# O si prefieres otro nombre de carpeta, cÃ�mbialo\
+\
+cd leandro
+: 1765492333:0;ls
+: 1765492341:0;pwd
+: 1765492392:0;# Navegar al directorio de keymaps de Sofle\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/\
+\
+# Clonar tu configuración\
+git clone https://github.com/LeandroNicolas97/sofle-qmk.git sofle\
+\
+cd sofle
+: 1765492426:0;# Desde el directorio principal de qmk_firmware\
+cd ~/qmk_firmware\
+\
+# Compilar tu keymap\
+qmk compile -kb sofle -km sofle\
+\
+# Para flashear (conecta tu teclado en modo bootloader)\
+qmk flash -kb sofle -km sofle
+: 1765492429:0;ls
+: 1765492434:0;pwd
+: 1765492445:0;# Compilar tu keymap\
+qmk compile -kb sofle -km sofle
+: 1765492476:0;# Volver al home\
+cd ~\
+\
+# Eliminar la carpeta incorrecta\
+rm -rf ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Si no existe qmk_firmware en tu home, clonarlo\
+cd ~\
+git clone https://github.com/qmk/qmk_firmware.git\
+cd qmk_firmware
+: 1765492486:0;# Instalar dependencias\
+sudo pacman -S git python-pip libusb avr-gcc avr-libc arm-none-eabi-gcc arm-none-eabi-newlib\
+\
+# Instalar qmk CLI\
+pip install --user qmk\
+\
+# Verificar que se instaló\
+ls ~/.local/bin/qmk
+: 1765492509:0;# Agregar a tu .zshrc\
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc\
+\
+# Recargar zsh\
+source ~/.zshrc\
+\
+# Verificar que funciona\
+qmk --version
+: 1765492529:0;cd ~/qmk_firmware\
+qmk setup -y
+: 1765492549:0;h
+: 1765492554:0;# Navegar a la carpeta de keymaps\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/\
+\
+# Clonar SOLO tu keymap (no todo QMK)\
+git clone https://github.com/LeandroNicolas97/sofle-qmk.git sofle
+: 1765492589:0;# Instalar qmk directamente desde los repositorios de Arch\
+sudo pacman -S qmk\
+\
+# Verificar que funciona\
+qmk --version
+: 1765492603:0;cd ~/qmk_firmware\
+qmk setup -y
+: 1765492736:0;# Navegar a la carpeta de keymaps de Sofle\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/\
+\
+# Clonar tu configuración (solo los archivos del keymap, no todo QMK)\
+git clone https://github.com/LeandroNicolas97/sofle-qmk.git sofle\
+\
+# Volver al directorio principal\
+cd ~/qmk_firmware\
+\
+# Compilar\
+qmk compile -kb sofle -km sofle
+: 1765492762:0;# Eliminar la carpeta existente\
+rm -rf ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Ahora clonar tu configuración\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/\
+git clone https://github.com/LeandroNicolas97/sofle-qmk.git sofle\
+\
+# Verificar qué contiene\
+ls -la sofle/
+: 1765492823:0;# Ir a la carpeta de tu repo clonado\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Buscar tu keymap personalizado dentro de este repo\
+ls keyboards/sofle/keymaps/\
+\
+# Ver qué keymaps tienes ahí
+: 1765492865:0;# Eliminar todo este repo mal ubicado\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/\
+rm -rf sofle\
+\
+# Crear tu carpeta de keymap vacía\
+mkdir sofle\
+cd sofle\
+\
+# Clonar tu repo en un lugar temporal\
+cd /tmp\
+git clone https://github.com/LeandroNicolas97/sofle-qmk.git temp-sofle\
+\
+# Copiar SOLO los archivos de tu keymap desde dentro del repo\
+# Primero, busquemos dónde estÃ� tu keymap personalizado\
+ls temp-sofle/keyboards/sofle/keymaps/
+: 1765492943:0;free -h\
+
+: 1765492988:0;ps -eo pid,comm,%mem,%cpu --sort=-%mem | head -15\
+
+: 1765493030:0;df -h\
+
+: 1765493078:0;sudo du -h --max-depth=1 /\
+
+: 1765493088:0;du -h --max-depth=1 ~\
+
+: 1765493179:0;# Copiar tu keymap personalizado al lugar correcto\
+cp -r temp-sofle/keyboards/sofle/keymaps/sofle_qmk/* ~/qmk_firmware/keyboards/sofle/keymaps/sofle/\
+\
+# Verificar que se copió correctamente\
+ls ~/qmk_firmware/keyboards/sofle/keymaps/sofle/\
+\
+# Limpiar el temporal\
+rm -rf temp-sofle\
+\
+# Volver al directorio principal y compilar\
+cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493252:0;# Editar el keymap.c\
+nvim ~/qmk_firmware/keyboards/sofle/keymaps/sofle/keymap.c
+: 1765493371:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Hacer backup\
+cp keymap.c keymap.c.backup\
+\
+# Reemplazar los códigos antiguos\
+sed -i 's/RGB_TOG/UG_TOGG/g' keymap.c\
+sed -i 's/KC_WH_D/KC_MS_WH_DOWN/g' keymap.c\
+sed -i 's/KC_WH_U/KC_MS_WH_UP/g' keymap.c\
+\
+# Compilar de nuevo\
+cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493397:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Corregir los keycodes del mouse wheel\
+sed -i 's/KC_MS_WH_DOWN/KC_WH_D/g' keymap.c\
+sed -i 's/KC_MS_WH_UP/KC_WH_U/g' keymap.c\
+\
+# Compilar de nuevo\
+cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493404:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Intentar con los nombres nuevos\
+sed -i 's/KC_WH_D/KC_MS_WH_DOWN/g' keymap.c\
+sed -i 's/KC_MS_WH_DOWN/KC_WHEEL_DOWN/g' keymap.c\
+sed -i 's/KC_WH_U/KC_MS_WH_UP/g' keymap.c  \
+sed -i 's/KC_MS_WH_UP/KC_WHEEL_UP/g' keymap.c\
+\
+cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493444:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Agregar soporte de mouse\
+echo "MOUSEKEY_ENABLE = yes" >> rules.mk
+: 1765493464:0;cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493474:0;cat ~/qmk_firmware/keyboards/sofle/keymaps/sofle/rules.mk
+: 1765493493:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Reemplazar por los keycodes correctos\
+sed -i 's/KC_WHEEL_DOWN/KC_MS_WH_DOWN/g' keymap.c\
+sed -i 's/KC_WHEEL_UP/KC_MS_WH_UP/g' keymap.c\
+\
+# Verificar que se hicieron los cambios\
+grep -n "KC_MS_WH" keymap.c\
+\
+# Compilar\
+cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493514:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Cambiar al prefijo correcto\
+sed -i 's/KC_MS_WH_DOWN/KC_WH_D/g' keymap.c\
+sed -i 's/KC_MS_WH_UP/KC_WH_U/g' keymap.c\
+\
+# Compilar\
+cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493525:0;# Buscar en los archivos de QMK los keycodes de mouse wheel disponibles\
+grep -r "MS_WH" ~/qmk_firmware/quantum/ | grep -i "define" | head -10
+: 1765493547:0;# Buscar la definición correcta de KC_WH\
+grep -r "KC_WH_U\|KC_WH_D" ~/qmk_firmware/quantum/keycodes/ | grep define | head -5
+: 1765493554:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Cambiar a volumen (esto funcionarÃ� seguro)\
+sed -i 's/KC_WH_D/KC_VOLD/g' keymap.c\
+sed -i 's/KC_WH_U/KC_VOLU/g' keymap.c\
+\
+# Compilar\
+cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493569:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Intentar otra vez con estos nombres\
+sed -i 's/KC_VOLD/KC_MS_WH_DOWN/g' keymap.c\
+sed -i 's/KC_VOLU/KC_MS_WH_UP/g' keymap.c
+: 1765493610:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Ver la función del encoder\
+grep -A 30 "encoder_update_user" keymap.c
+: 1765493644:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Crear un backup\
+cp keymap.c keymap.c.backup2\
+\
+# Editar el archivo\
+nano keymap.c
+: 1765493664:0;nvim keymap.c
+: 1765493698:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Cambiar solo el encoder izquierdo (index 0) a volumen\
+sed -i '172,176s/KC_MS_WH_DOWN/KC_VOLD/' keymap.c\
+sed -i '172,176s/KC_MS_WH_UP/KC_VOLU/' keymap.c\
+\
+# Verificar los cambios\
+grep -A 15 "encoder_update_user" keymap.c\
+\
+# Compilar\
+cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493733:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Reemplazar TODOS los KC_MS_WH en el archivo\
+sed -i 's/KC_MS_WH_DOWN/KC_PGDN/g' keymap.c\
+sed -i 's/KC_MS_WH_UP/KC_PGUP/g' keymap.c\
+\
+# Ahora configuremos correctamente los encoders\
+# Primero ver qué quedó\
+grep -A 15 "encoder_update_user" keymap.c
+: 1765493752:0;nvim ~/qmk_firmware/keyboards/sofle/keymaps/sofle/keymap.c
+: 1765493767:0;cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle
+: 1765493858:0;# 1. Ir a tu carpeta de keymap\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# 2. Ver qué archivos tienes\
+ls -la\
+\
+# 3. Eliminar el .git actual (esto NO afecta tu repo en GitHub todavía)\
+rm -rf .git\
+\
+# 4. Inicializar un nuevo repositorio solo con tus archivos\
+git init\
+git add config.h keymap.c rules.mk readme.md\
+git commit -m "Initial commit: Sofle keymap configuration only"\
+\
+# 5. Conectar con tu repo en GitHub (forzar push limpio)\
+git remote add origin https://github.com/LeandroNicolas97/sofle-qmk.git\
+git branch -M main\
+git push -f origin main
+: 1765493961:0;# 1. Generar clave SSH (presiona Enter en todas las preguntas)\
+ssh-keygen -t ed25519 -C "leandroatero97@gmail.com"\
+\
+# 2. Copiar la clave pública\
+cat ~/.ssh/id_ed25519.pub
+: 1765494019:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+git remote remove origin\
+git remote add origin git@github.com:LeandroNicolas97/sofle-qmk.git\
+git push -f origin main
+: 1765494057:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Crear un .gitignore apropiado\
+cat > .gitignore << 'EOF'\
+# Archivos de compilación\
+*.o\
+*.hex\
+*.bin\
+*.elf\
+*.map\
+\
+# Backups\
+*.backup\
+*.backup*\
+*.bak\
+\
+# Archivos del sistema\
+.DS_Store\
+Thumbs.db\
+EOF\
+\
+# Agregar y commitear\
+git add .gitignore\
+git commit -m "Add .gitignore"\
+git push origin main\
+\
+# Ver el estado limpio\
+git status
+: 1765494069:0;# Conectar tu teclado y ponerlo en modo bootloader\
+# (usualmente presionando RESET o QK_BOOT)\
+\
+cd ~/qmk_firmware\
+qmk flash -kb sofle -km sofle
+: 1765494161:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+cat > README.md << 'EOF'\
+# Sofle Keyboard - Custom Keymap\
+\
+Mi configuración personalizada para el teclado Sofle v2.\
+\
+## Características\
+\
+- **Encoder Izquierdo**: Control de volumen (arriba/abajo)\
+- **Encoder Derecho**: Scroll (Page Up/Down)\
+- **RGB Underglow**: Habilitado con toggle en capa de ajustes\
+- **OLED**: Soporte habilitado\
+- **WPM Counter**: Contador de palabras por minuto\
+- **Tri-Layer**: Activación automÃ�tica de capa 3 al presionar capas 1 y 2\
+\
+## Requisitos\
+\
+### Arch Linux / Manjaro\
+```bash\
+sudo pacman -S qmk git python-pip libusb avr-gcc avr-libc arm-none-eabi-gcc arm-none-eabi-newlib\
+```\
+\
+### Ubuntu / Debian\
+```bash\
+sudo apt install qmk git python3-pip libusb-1.0-0-dev gcc-avr avr-libc gcc-arm-none-eabi libnewlib-arm-none-eabi\
+```\
+\
+### macOS\
+```bash\
+brew install qmk/qmk/qmk\
+```\
+\
+## Instalación\
+\
+### 1. Clonar QMK Firmware\
+```bash\
+cd ~\
+git clone https://github.com/qmk/qmk_firmware.git\
+cd qmk_firmware\
+qmk setup -y\
+```\
+\
+### 2. Clonar este keymap\
+```bash\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/\
+git clone git@github.com:LeandroNicolas97/sofle-qmk.git sofle\
+```\
+\
+### 3. Compilar\
+```bash\
+cd ~/qmk_firmware\
+qmk compile -kb sofle -km sofle\
+```\
+\
+## Flashear el teclado\
+\
+### Método 1: Flash automÃ�tico (recomendado)\
+```bash\
+cd ~/qmk_firmware\
+qmk flash -kb sofle -km sofle\
+```\
+\
+Luego:\
+1. Cuando veas "Waiting for USB device...", presiona el botón RESET en tu teclado\
+2. El proceso de flash comenzarÃ� automÃ�ticamente\
+3. Repite para el otro lado del teclado\
+\
+### Método 2: Flash manual con avrdude\
+```bash\
+cd ~/qmk_firmware\
+\
+# Compilar\
+qmk compile -kb sofle -km sofle\
+\
+# El archivo .hex estarÃ� en: sofle_rev1_sofle.hex\
+\
+# Flashear (presiona RESET cuando esté listo)\
+avrdude -p atmega32u4 -P /dev/ttyACM0 -c avr109 -U flash:w:sofle_rev1_sofle.hex\
+```\
+\
+### Método 3: QMK Toolbox (GUI)\
+\
+1. Descargar [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases)\
+2. Abrir el archivo `sofle_rev1_sofle.hex`\
+3. Seleccionar MCU: `atmega32u4`\
+4. Presionar RESET en el teclado\
+5. Click en "Flash"\
+\
+## Poner el teclado en modo Bootloader\
+\
+Hay tres formas de entrar al modo bootloader:\
+\
+1. **Botón RESET físico**: Presiona el botón RESET en la PCB\
+2. **Keycode RESET**: Presiona `QK_BOOT` (en capa 3: Fn + Esc)\
+3. **Bootmagic reset**: Mantén presionada la tecla superior izquierda mientras conectas el USB\
+\
+## Permisos USB en Linux\
+\
+Si tienes problemas de permisos, crea reglas udev:\
+```bash\
+sudo tee /etc/udev/rules.d/50-qmk.rules << 'RULES'\
+# ATmega32U4\
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2ff4", TAG+="uaccess"\
+# ATmega32U2\
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2ff0", TAG+="uaccess"\
+RULES\
+\
+sudo udevadm control --reload-rules\
+sudo udevadm trigger\
+```\
+\
+## Estructura de archivos\
+```\
+.\
+⃴��⃴�⃴� config.h      # Configuración del keymap\
+⃴��⃴�⃴� keymap.c      # Layout y funciones personalizadas\
+⃴��⃴�⃴� rules.mk      # Features habilitadas\
+⃴��⃴�⃴� README.md     # Este archivo\
+```\
+\
+## Modificar el keymap\
+\
+1. Editar `keymap.c` con tu editor favorito:\
+```bash\
+   nano keymap.c\
+```\
+\
+2. Compilar y probar:\
+```bash\
+   cd ~/qmk_firmware\
+   qmk compile -kb sofle -km sofle\
+```\
+\
+3. Si funciona bien, flashear:\
+```bash\
+   qmk flash -kb sofle -km sofle\
+```\
+\
+4. Guardar cambios:\
+```bash\
+   cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+   git add .\
+   git commit -m "Descripción de cambios"\
+   git push origin main\
+```\
+\
+## Recursos útiles\
+\
+- [QMK Documentation](https://docs.qmk.fm/)\
+- [QMK Keycodes](https://docs.qmk.fm/#/keycodes)\
+- [Sofle Keyboard](https://josefadamcik.github.io/SofleKeyboard/)\
+\
+## Solución de problemas\
+\
+### Error: "avrdude: ser_open(): can't open device"\
+```bash\
+# Verificar puerto\
+ls /dev/ttyACM*\
+\
+# Agregar usuario al grupo dialout\
+sudo usermod -aG dialout $USER\
+# Cerrar sesión e iniciar de nuevo\
+```\
+\
+### Error: "Device not found"\
+\
+- Verifica que el teclado esté en modo bootloader\
+- Prueba con otro cable USB\
+- Verifica las reglas udev\
+\
+### El teclado no responde después del flash\
+\
+- Desconecta y reconecta el USB\
+- Presiona RESET dos veces rÃ�pidamente\
+- Re-flashea el firmware\
+\
+## Licencia\
+\
+Este keymap estÃ� bajo la misma licencia que QMK Firmware (GPL v2).\
+EOF\
+\
+# Agregar y pushear\
+git add README.md\
+git commit -m "Add comprehensive README with flashing instructions"\
+git push origin main\
+\
+echo "⃼�� README.md creado y pusheado a GitHub"
+: 1765494186:0;cd qmk_firmware
+: 1765494224:0;git log
+: 1765494251:0;git log --oneline 
+: 1765494379:0;cd qmk_firmware
+: 1765494380:0;git status
+: 1765494383:0;git diff
+: 1765494417:0;# Ir a TU repositorio del keymap\
+cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Ahora sí, ver el estado\
+git status\
+\
+# Agregar cambios\
+git add .\
+\
+# Commit\
+git commit -m "Update README with complete flashing instructions"\
+\
+# Push\
+git push origin main
+: 1765494426:0;git log
+: 1765494446:0;# Ver el remote del repo actual\
+git remote -v\
+\
+# Si estÃ�s en qmk_firmware verÃ�s:\
+# origin  https://github.com/qmk/qmk_firmware.git\
+\
+# Si estÃ�s en tu keymap verÃ�s:\
+# origin  git@github.com:LeandroNicolas97/sofle-qmk.git
+: 1765494470:0;cd qmk_firmware/keyboards/sofle
+: 1765494477:0;cd keymaps/sofle
+: 1765494478:0;ls
+: 1765494485:0;git status
+: 1765494487:0;git log --oneline 
+: 1765494553:0;cd ~/qmk_firmware/keyboards/sofle/keymaps/sofle\
+\
+# Ver qué archivos estÃ�n trackeados en TU repo\
+git ls-files
+: 1765494760:0;fastfetch
+: 1765494937:0;# 1. Crear estructura de dotfiles\
+mkdir -p ~/dotfiles\
+cd ~/dotfiles\
+\
+# 2. Inicializar git\
+git init\
+git branch -M main\
+\
+# 3. Crear estructura organizada\
+mkdir -p {hyprland,waybar,kitty,zsh,starship,nvim,git,misc}
+: 1765494966:0;cd ~/dotfiles\
+\
+# Hyprland\
+cp ~/.config/hypr/hyprland.conf hyprland/\
+cp ~/.config/hypr/hyprpaper.conf hyprland/ 2>/dev/null || true\
+\
+# Waybar\
+cp ~/.config/waybar/config.jsonc waybar/\
+cp ~/.config/waybar/style.css waybar/\
+\
+# Kitty\
+cp ~/.config/kitty/kitty.conf kitty/\
+cp ~/.config/kitty/theme.conf kitty/ 2>/dev/null || true\
+\
+# Zsh\
+cp ~/.zshrc zsh/\
+cp ~/.zsh_history zsh/history 2>/dev/null || true\
+cp -r ~/.oh-my-zsh/custom/* zsh/oh-my-zsh-custom/ 2>/dev/null || true\
+\
+# Starship\
+cp ~/.config/starship.toml starship/\
+\
+# Neovim (si lo usas)\
+cp -r ~/.config/nvim/* nvim/ 2>/dev/null || true\
+\
+# Git\
+cp ~/.gitconfig git/\
+\
+# Otras configuraciones\
+cp ~/.bashrc misc/ 2>/dev/null || true

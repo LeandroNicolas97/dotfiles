@@ -1,0 +1,110 @@
+return {
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require('neoscroll').setup({
+  --       hide_cursor = true,
+  --       stop_eof = true,
+  --       respect_scrolloff = true,
+  --       easing_function = "sine",
+  --       pre_hook = function()
+  --         vim.opt.eventignore:append({"WinScrolled", "CursorMoved"})
+  --       end,
+  --       post_hook = function()
+  --         vim.opt.eventignore:remove({"WinScrolled", "CursorMoved"})
+  --       end,
+  --       performance_mode = true,
+  --     })
+  --
+  --     local neoscroll = require('neoscroll')
+  --
+  --     -- Define una función helper para crear los mapeos
+  --     local map = function(keys, func, desc)
+  --       vim.keymap.set('n', keys, func, { desc = desc })
+  --     end
+  --
+  --     -- Mapeos usando la nueva sintaxis scroll(lines, opts) con duration en lugar de time
+  --     map('<C-u>', function()
+  --       neoscroll.scroll(
+  --         -vim.wo.scroll,
+  --         { move_cursor = true, easing = "sine", duration = 250 }
+  --       )
+  --     end, "Scroll media página arriba")
+  --
+  --     map('<C-d>', function()
+  --       neoscroll.scroll(
+  --         vim.wo.scroll,
+  --         { move_cursor = true, easing = "sine", duration = 250 }
+  --       )
+  --     end, "Scroll media página abajo")
+  --
+  --     map('<C-b>', function()
+  --       neoscroll.scroll(
+  --         -vim.api.nvim_win_get_height(0),
+  --         { move_cursor = true, easing = "sine", duration = 450 }
+  --       )
+  --     end, "Scroll página completa arriba")
+  --
+  --     map('<C-f>', function()
+  --       neoscroll.scroll(
+  --         vim.api.nvim_win_get_height(0),
+  --         { move_cursor = true, easing = "sine", duration = 450 }
+  --       )
+  --     end, "Scroll página completa abajo")
+  --
+  --     map('<C-y>', function()
+  --       neoscroll.scroll(
+  --         -1,
+  --         { move_cursor = false, easing = "sine", duration = 100 }
+  --       )
+  --     end, "Scroll línea arriba")
+  --
+  --     map('<C-e>', function()
+  --       neoscroll.scroll(
+  --         1,
+  --         { move_cursor = false, easing = "sine", duration = 100 }
+  --       )
+  --     end, "Scroll línea abajo")
+  --
+  --     map('zt', function()
+  --       neoscroll.zt({ duration = 250 })
+  --     end, "Posicionar línea arriba")
+  --
+  --     map('zz', function()
+  --       neoscroll.zz({ duration = 250 })
+  --     end, "Posicionar línea centro")
+  --
+  --     map('zb', function()
+  --       neoscroll.zb({ duration = 250 })
+  --     end, "Posicionar línea abajo")
+  --
+  --     -- Mapeos para las flechas en modo normal y visual
+  --     local arrow_opts = { move_cursor = false, easing = "sine", duration = 150 }
+  --
+  --     vim.keymap.set({'n', 'v'}, '<S-Up>', function()
+  --       neoscroll.scroll(-25, arrow_opts)
+  --     end, { desc = "Scroll suave arriba" })
+  --
+  --     vim.keymap.set({'n', 'v'}, '<S-Down>', function()
+  --       neoscroll.scroll(25, arrow_opts)
+  --     end, { desc = "Scroll suave abajo" })
+  --
+  --     vim.keymap.set({'n', 'v'}, '<S-Left>', function()
+  --       neoscroll.scroll(-8, arrow_opts)
+  --     end, { desc = "Scroll suave izquierda" })
+  --
+  --     vim.keymap.set({'n', 'v'}, '<S-Right>', function()
+  --       neoscroll.scroll(8, arrow_opts)
+  --     end, { desc = "Scroll suave derecha" })
+  --   end,
+  --
+  --   init = function()
+  --     vim.opt.smoothscroll = false
+  --     vim.opt.scrolloff = 8
+  --     vim.opt.lazyredraw = true
+  --     vim.opt.redrawtime = 1500
+  --     vim.opt.ttyfast = true
+  --   end,
+  -- }
+}

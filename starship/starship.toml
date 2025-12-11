@@ -1,0 +1,79 @@
+# ~/.config/starship.toml
+
+# Formato en UNA SOLA LÍNEA
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nodejs\
+$rust\
+$c\
+$character"""
+
+# Usuario (tu nombre)
+[username]
+style_user = "bold yellow"
+style_root = "bold red"
+format = "[$user](bold yellow)/"
+disabled = false
+show_always = true
+
+# Hostname (DESACTIVADO)
+[hostname]
+disabled = true
+
+# Directorio actual (solo mostrar nombre actual, no ruta completa)
+[directory]
+truncation_length = 1
+truncate_to_repo = false
+style = "bold cyan"
+format = "[$path]($style)/"
+
+# Rama de Git
+[git_branch]
+symbol = " 🌿"
+style = "bold purple"
+format = "[$symbol$branch]($style) "
+
+# Estado de Git
+[git_status]
+style = "bold red"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+conflicted = "🏳 "
+untracked = "?${count} "
+stashed = "📦 "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+
+# Caracter del prompt
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+# Lenguajes (opcional)
+[python]
+symbol = " "
+format = 'via [$symbol($version )]($style)'
+
+[nodejs]
+symbol = " "
+format = 'via [$symbol($version )]($style)'
+
+[rust]
+symbol = " "
+format = 'via [$symbol($version )]($style)'
+
+[c]
+symbol = " "
+format = 'via [$symbol($version )]($style)'
+
+[golang]
+symbol = " "
+format = 'via [$symbol($version )]($style)'
