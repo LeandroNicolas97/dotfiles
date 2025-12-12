@@ -1,12 +1,15 @@
 # Arch Linux Dotfiles
 
-Mi configuración personal de Arch Linux con Hyprland + Waybar + Kitty.
+Configuración personal de Arch Linux con Hyprland + Waybar + Kitty.
 
 ## 🎨 Configuraciones incluidas
 
 - **Hyprland**: Window manager (Wayland)
 - **Waybar**: Barra de estado con tema Dracula
 - **Kitty**: Terminal con transparencia
+- **Fastfetch**: Sistema de información del sistema
+- **Ranger**: Gestor de archivos en terminal
+- **Neovim**: Editor de texto
 - **Zsh**: Shell con Oh-My-Zsh
 - **Starship**: Prompt personalizado
 
@@ -40,15 +43,15 @@ chmod +x setup-symlinks.sh
 
 ### Editar configuraciones
 
-Edita tus archivos como siempre en `~/.config/`:
+Se deben editar los archivos en `~/.config/`:
 ```bash
-nano ~/.config/waybar/config.jsonc
+nano ~/.config/waybar/config
 nano ~/.config/kitty/kitty.conf
 nano ~/.config/hypr/hyprland.conf
 nano ~/.zshrc
 ```
 
-Los cambios se aplican inmediatamente y **se sincronizan automáticamente** con `~/dotfiles/`.
+Los cambios se aplican inmediatamente y se sincronizan automáticamente con `~/dotfiles/`.
 
 ### Subir cambios a GitHub
 ```bash
@@ -84,10 +87,16 @@ dotfiles/
 ├── hyprland/              # Hyprland configs
 │   └── hyprland.conf
 ├── waybar/                # Waybar configs
-│   ├── config.jsonc
+│   ├── config
 │   └── style.css
 ├── kitty/                 # Kitty terminal
 │   └── kitty.conf
+├── fastfetch/             # Fastfetch config
+│   └── config.jsonc
+├── ranger/                # Ranger file manager
+│   └── ...
+├── nvim/                  # Neovim config
+│   └── ...
 ├── zsh/                   # Zsh configs
 │   ├── .zshrc
 │   └── oh-my-zsh-custom/
@@ -100,53 +109,16 @@ dotfiles/
 └── README.md
 ```
 
-## 🔗 Cómo funcionan los symlinks
-
-Los archivos en `~/.config/` son enlaces simbólicos a `~/dotfiles/`:
-```
-~/.config/waybar  -> ~/dotfiles/waybar
-~/.config/hypr    -> ~/dotfiles/hyprland
-~/.config/kitty   -> ~/dotfiles/kitty
-~/.zshrc          -> ~/dotfiles/zsh/.zshrc
-```
-
-Esto significa:
-- ✅ Editas en `~/.config/` como siempre
-- ✅ Los cambios están automáticamente en git
-- ✅ No necesitas sincronizar manualmente
-
-## 🔧 Solución de problemas
-
-### Verificar symlinks
-```bash
-ls -la ~/.config/ | grep -E "waybar|hypr|kitty"
-```
-
-Deberías ver `->` indicando symlinks.
-
-### Recrear symlinks
-```bash
-cd ~/dotfiles
-./setup-symlinks.sh
-```
-
-### Conflicto de archivos
-
-Si hay conflictos, los originales se respaldan como `.backup`:
-```bash
-ls ~/.config/*.backup
-```
-
 ## 📝 Notas
 
 - Las configuraciones se mantienen sincronizadas automáticamente
 - Los backups se crean como `.backup` antes de crear symlinks
-- Actualiza `packages.txt` periódicamente
-- Las apps recargan configs automáticamente (excepto Hyprland, usa `Mod+Shift+R`)
+- Se debe actualizar `packages.txt` periódicamente
+- Las aplicaciones recargan configuraciones automáticamente (excepto Hyprland, requiere reinicio)
 
 ## 🔐 SSH en nuevo sistema
 
-Para clonar en un sistema nuevo, necesitas configurar SSH:
+Para clonar en un sistema nuevo, se debe configurar SSH:
 ```bash
 ssh-keygen -t ed25519 -C "leandroatero97@gmail.com"
 cat ~/.ssh/id_ed25519.pub
