@@ -24,6 +24,9 @@ backup_and_link() {
 backup_and_link "$PWD/waybar" "$HOME/.config/waybar"
 backup_and_link "$PWD/hyprland" "$HOME/.config/hypr"
 backup_and_link "$PWD/kitty" "$HOME/.config/kitty"
+backup_and_link "$PWD/fastfetch" "$HOME/.config/fastfetch"
+backup_and_link "$PWD/ranger" "$HOME/.config/ranger"
+backup_and_link "$PWD/nvim" "$HOME/.config/nvim"
 backup_and_link "$PWD/starship/starship.toml" "$HOME/.config/starship.toml"
 backup_and_link "$PWD/zsh/.zshrc" "$HOME/.zshrc"
 
