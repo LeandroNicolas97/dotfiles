@@ -89,6 +89,10 @@ HISTSIZE=50000
 SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
+# No guardar comandos que empiezan con # (comentarios) en el historial
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -121,6 +125,10 @@ eval "$(starship init zsh)"
 # FZF CONFIGURATION
 # ============================================
 
+# Cargar keybindings de fzf (Ctrl+R para historial, Ctrl+T para archivos, Alt+C para directorios)
+if [ -f /etc/profile.d/fzf.zsh ]; then
+  source /etc/profile.d/fzf.zsh
+fi
 
 # Configuración de FZF
 export FZF_DEFAULT_OPTS="
@@ -132,6 +140,10 @@ export FZF_DEFAULT_OPTS="
 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
+
+# Configuración de búsqueda en historial (Ctrl+R)
+# Mejora la búsqueda con exact match para encontrar comandos específicos
+export FZF_CTRL_R_OPTS="--exact"
 
 # Usar fd en lugar de find (más rápido, opcional)
 # Primero instala fd: sudo pacman -S fd
