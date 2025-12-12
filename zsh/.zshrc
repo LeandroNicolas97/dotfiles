@@ -82,6 +82,13 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# ============================================
+# HISTORIAL
+# ============================================
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE=~/.zsh_history
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
