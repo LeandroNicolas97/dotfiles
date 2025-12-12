@@ -89,6 +89,10 @@ HISTSIZE=50000
 SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
+# No guardar comandos que empiezan con # (comentarios) en el historial
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -121,6 +125,10 @@ eval "$(starship init zsh)"
 # FZF CONFIGURATION
 # ============================================
 
+# Cargar keybindings de fzf (Ctrl+R para historial, Ctrl+T para archivos, Alt+C para directorios)
+if [ -f /etc/profile.d/fzf.zsh ]; then
+  source /etc/profile.d/fzf.zsh
+fi
 
 # Configuración de FZF
 export FZF_DEFAULT_OPTS="
@@ -134,23 +142,8 @@ export FZF_DEFAULT_OPTS="
 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 
 # Configuración de búsqueda en historial (Ctrl+R)
-# Filtra comentarios y mejora la búsqueda
-export FZF_CTRL_R_OPTS="
---preview 'echo {}'
---preview-window down:3:hidden:wrap
---bind '?:toggle-preview'
---bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort'
---header 'Press ? to toggle preview, Ctrl+Y to copy'
---exact"
-
-# Función para filtrar comentarios del historial
-function fzf-history-widget-no-comments() {
-  local selected
-  selected=$(fc -rl 1 | grep -v '^\s*[0-9]*\s*#' | fzf +s --tac --query="$LBUFFER" --bind 'ctrl-r:toggle-sort' "${(@f)FZF_CTRL_R_OPTS}") && LBUFFER=$(echo "$selected" | sed 's/^[ ]*[0-9]*[ ]*//')
-  zle reset-prompt
-}
-zle -N fzf-history-widget-no-comments
-bindkey '^R' fzf-history-widget-no-comments
+# Mejora la búsqueda con exact match para encontrar comandos específicos
+export FZF_CTRL_R_OPTS="--exact"
 
 # Usar fd en lugar de find (más rápido, opcional)
 # Primero instala fd: sudo pacman -S fd
