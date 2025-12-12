@@ -24,7 +24,6 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "clangd",
                     "ts_ls",
                     "pyright",
                     "html",
@@ -154,117 +153,55 @@ return {
                 }
             end
 
-            -- Usar require lspconfig (sí, con el warning suprimido arriba)
+            -- Configuración de LSP servers
             local lspconfig = require('lspconfig')
+            local lspconfig_configs = require('lspconfig.configs')
 
-            -- Configuración específica para clangd
-            lspconfig.clangd.setup({
-                cmd = {
-                    "clangd",
-                    "--background-index",
-                    "--query-driver=/usr/bin/arm-none-eabi-gcc",
-                    "--all-scopes-completion",
-                    "--completion-style=detailed",
-                    "--function-arg-placeholders=true",
-                    "-j=4",
-                    "--header-insertion=never",
-                    "--pch-storage=memory",
-                    "--compile-flags-ignore=-fno-reorder-functions",
-                    "--enable-config",
-                    "--log=error",
-                    "--compile-commands-dir=build",
-                    "--header-insertion-decorators=0",
-                },
-                filetypes = {"c", "cpp", "objc", "objcpp"},
-                root_dir = lspconfig.util.root_pattern(
-                    "compile_commands.json",
-                    "compile_flags.txt",
-                    ".clangd",
-                    "build",
-                    ".git"
-                ),
-                on_attach = function(client, bufnr)
-                    on_attach(client, bufnr)
-                    client.server_capabilities.semanticTokensProvider = nil
-                end,
-                capabilities = capabilities,
-                init_options = {
-                    usePlaceholders = true,
-                    completeUnimported = false,
-                    clangdFileStatus = true,
-                    fallbackFlags = {
-                        "-xc",
-                        "--target=arm-none-eabi",
-                        "-DZEPHYR=1",
-                        "-DCONFIG_ARM=1",
-                        "-I${workspaceFolder}/include",
-                        "-I${workspaceFolder}/deps/zephyr/include",
-                        "-I${workspaceFolder}/deps/zephyr/include/zephyr",
-                        "-I.",
-                        "-I./include",
-                        "-I./src",
-                        "-std=gnu11",
-                        "-nostdinc",
-                        "--target=arm-none-eabi",
-                        "-DCONFIG_ARCH_HAS_CUSTOM_BUSY_WAIT=1",
-                        "-DCONFIG_HAS_DTS=1",
-                        "-Wno-unused-but-set-variable",
-                        "-Wno-unused-variable",
-                        "-Wno-unused-function",
-                    }
-                },
-                flags = {
-                    debounce_text_changes = 150,
-                },
-            })
-
-            -- Otros LSPs
-            lspconfig.ts_ls.setup({
-                on_attach = on_attach,
-                capabilities = capabilities
-            })
-
-            lspconfig.pyright.setup({
-                on_attach = on_attach,
-                capabilities = capabilities
-            })
-
-            lspconfig.lua_ls.setup({
-                on_attach = on_attach,
-                capabilities = capabilities,
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = 'LuaJIT',
-                        },
-                        diagnostics = {
-                            globals = {'vim'},
-                        },
-                        workspace = {
-                            library = vim.api.nvim_get_runtime_file("", true),
-                            checkThirdParty = false,
-                        },
-                        telemetry = {
-                            enable = false,
+            -- Configurar servidores solo si existen
+            local servers_config = {
+                lua_ls = {
+                    settings = {
+                        Lua = {
+                            runtime = {
+                                version = 'LuaJIT',
+                            },
+                            diagnostics = {
+                                globals = {'vim'},
+                            },
+                            workspace = {
+                                library = vim.api.nvim_get_runtime_file("", true),
+                                checkThirdParty = false,
+                            },
+                            telemetry = {
+                                enable = false,
+                            },
                         },
                     },
                 },
-            })
+                pyright = {},
+                ts_ls = {},
+                html = {},
+                cssls = {},
+                jsonls = {},
+            }
 
-            lspconfig.html.setup({
-                on_attach = on_attach,
-                capabilities = capabilities
-            })
+            for server_name, config in pairs(servers_config) do
+                -- Verificar si el servidor existe en lspconfig
+                local ok = pcall(function()
+                    local _ = lspconfig_configs[server_name]
+                end)
 
-            lspconfig.cssls.setup({
-                on_attach = on_attach,
-                capabilities = capabilities
-            })
+                if ok and lspconfig_configs[server_name] then
+                    local final_config = vim.tbl_deep_extend("force", {
+                        on_attach = on_attach,
+                        capabilities = capabilities
+                    }, config)
 
-            lspconfig.jsonls.setup({
-                on_attach = on_attach,
-                capabilities = capabilities
-            })
+                    pcall(function()
+                        lspconfig[server_name].setup(final_config)
+                    end)
+                end
+            end
         end
     }
 }
