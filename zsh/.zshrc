@@ -133,6 +133,25 @@ export FZF_DEFAULT_OPTS="
 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 
+# Configuración de búsqueda en historial (Ctrl+R)
+# Filtra comentarios y mejora la búsqueda
+export FZF_CTRL_R_OPTS="
+--preview 'echo {}'
+--preview-window down:3:hidden:wrap
+--bind '?:toggle-preview'
+--bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort'
+--header 'Press ? to toggle preview, Ctrl+Y to copy'
+--exact"
+
+# Función para filtrar comentarios del historial
+function fzf-history-widget-no-comments() {
+  local selected
+  selected=$(fc -rl 1 | grep -v '^\s*[0-9]*\s*#' | fzf +s --tac --query="$LBUFFER" --bind 'ctrl-r:toggle-sort' "${(@f)FZF_CTRL_R_OPTS}") && LBUFFER=$(echo "$selected" | sed 's/^[ ]*[0-9]*[ ]*//')
+  zle reset-prompt
+}
+zle -N fzf-history-widget-no-comments
+bindkey '^R' fzf-history-widget-no-comments
+
 # Usar fd en lugar de find (más rápido, opcional)
 # Primero instala fd: sudo pacman -S fd
 # export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -147,11 +166,7 @@ export FZF_DEFAULT_OPTS="
 export TERM=xterm-kitty
 export TERM=xterm-kitty
 
-# Fastfetch con logo aleatorio
-LOGO_DIR="$HOME/.config/fastfetch/logos"
-RANDOM_LOGO=$(find "$LOGO_DIR" -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.webp" \) | shuf -n 1)
-
-# Ejecutar fastfetch directamente con la imagen aleatoria
-fastfetch --logo "$RANDOM_LOGO" --logo-type kitty --logo-width 35 --logo-height 20
+# Fastfetch
+fastfetch
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
