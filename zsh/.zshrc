@@ -163,3 +163,9 @@ export TERM=xterm-kitty
 fastfetch
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export LANG=es_CL.UTF-8
+export LC_ALL=es_CL.UTF-8
+export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
+export ESP_IDF_PATH=~/git/oxycontroller/deps/esp-idf
+export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
+export PATH="$HOME/.local/bin:$PATH"
