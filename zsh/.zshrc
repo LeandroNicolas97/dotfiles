@@ -167,3 +167,9 @@ RANDOM_LOGO=$(find "$LOGO_DIR" -type f \( -name "*.png" -o -name "*.jpg" -o -nam
 fastfetch --logo "$RANDOM_LOGO" --logo-type kitty --logo-width 35 --logo-height 20
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export LANG=es_CL.UTF-8
+export LC_ALL=es_CL.UTF-8
+export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
+export ESP_IDF_PATH=~/git/oxycontroller/deps/esp-idf
+export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
+export PATH="$HOME/.local/bin:$PATH"
