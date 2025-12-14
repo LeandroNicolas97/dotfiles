@@ -1,8 +1,6 @@
 #!/bin/bash
-# Script para seleccionar wallpaper aleatorio de Dragon Ball
-
 # Directorio con las imágenes
-WALLPAPER_DIR="/home/leandro/Downloads"
+WALLPAPER_DIR="/home/leandro/Pictures/Wallpapers"
 
 # Array con los wallpapers disponibles
 WALLPAPERS=(
