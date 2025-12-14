@@ -1,0 +1,8 @@
+[pyprland]
+plugins = ["expose"]
+
+[expose]
+# Include only used workspaces
+include_special = false
+# Show only non-empty workspaces
+include_empty = false
