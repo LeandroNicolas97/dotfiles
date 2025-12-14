@@ -185,3 +185,5 @@ export ESP_IDF_PATH=~/git/oxycontroller/deps/esp-idf
 export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+export PATH=$PATH:/opt/ba2-toolchain/bin
