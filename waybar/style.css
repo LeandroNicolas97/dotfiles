@@ -1,4 +1,5 @@
 
+/* Dracula Cremoso - Paleta de colores suaves */
 * {
     font-family: FiraCode Nerd Font;
     font-size: 12px;
@@ -9,7 +10,7 @@ window#waybar {
 }
 
 #window label {
-    background-color: red;
+    background-color: #ff6e85;
     font-weight: bold;
 }
 
@@ -19,12 +20,12 @@ window#waybar {
 }
 
 #workspaces button{
-    color: #9B8268;
-    background: #F5E6D3;
+    color: #bd93f9;
+    background: rgba(68, 71, 90, 0.6);
     margin-right: 8px;
     border-radius: 12px;
 
-    box-shadow: rgba(139, 115, 85, 0.15) 2px 2px 4px 1px;
+    box-shadow: rgba(189, 147, 249, 0.2) 2px 2px 4px 1px;
     padding: 12px;
     padding-top: 3px;
     padding-bottom: 2px;
@@ -32,9 +33,9 @@ window#waybar {
 }
 
 #workspaces button.active{
-    background: linear-gradient(135deg, #F5DEB3 0%, #D2B48C 50%, #C9A87C 100%);
+    background: linear-gradient(135deg, #d4b5f7 0%, #bd93f9 50%, #a87fe6 100%);
     background-size: 200% 200%;
-    color: #3D2817;
+    color: #1e1f29;
     font-weight: bolder;
 }
 
@@ -50,7 +51,7 @@ window#waybar {
     margin-right: 8px;
     border-radius: 12px;
 
-    box-shadow: rgba(139, 115, 85, 0.15) 2px 2px 4px 1px;
+    box-shadow: rgba(98, 114, 164, 0.25) 2px 2px 4px 1px;
     padding: 12px;
     padding-top: 3px;
     padding-bottom: 2px;
@@ -60,57 +61,57 @@ window#waybar {
 }
 
 #wireplumber {
-    color: #7C6854;
-    background: #F4E4C1;
+    color: #f8f8f2;
+    background: rgba(139, 233, 253, 0.5);
 }
 
 #network {
-    color: #8B7355;
-    background: #FFF8DC;
+    color: #f8f8f2;
+    background: rgba(80, 250, 123, 0.5);
 }
 
 #cpu {
-    color: #6B5744;
-    background: #FAEBD7;
+    color: #f8f8f2;
+    background: rgba(255, 184, 108, 0.5);
 }
 
 #memory {
-    color: #7D6E5D;
-    background: #FFE4C4;
+    color: #f8f8f2;
+    background: rgba(255, 121, 198, 0.5);
 }
 
 #battery {
-    color: #9B8268;
-    background: #F5DEB3;
+    color: #f8f8f2;
+    background: rgba(241, 250, 140, 0.5);
 }
 
 #custom-spotify {
-    color: #8B7355;
-    background: #EFE2BA;
+    color: #f8f8f2;
+    background: rgba(189, 147, 249, 0.5);
 }
 
 #clock {
-    background: linear-gradient(118deg, #F5DEB3 5%, #E8D4B0 5%, #E8D4B0 20%, #F5DEB3 20%, #F5DEB3 40%, #E8D4B0 40%, #E8D4B0 60%, #F5DEB3 60%, #F5DEB3 80%, #E8D4B0 80%, #E8D4B0 95%, #F5DEB3 95%);
+    background: linear-gradient(118deg, #d4b5f7 5%, #bd93f9 5%, #bd93f9 20%, #d4b5f7 20%, #d4b5f7 40%, #bd93f9 40%, #bd93f9 60%, #d4b5f7 60%, #d4b5f7 80%, #bd93f9 80%, #bd93f9 95%, #d4b5f7 95%);
 
     background-size: 200% 300%;
 
     animation: gradient_f_nh 4s linear infinite;
     margin-right: 20px;
-    color: #3D2817;
-    text-shadow: 0 0 3px rgba(245, 222, 179, 0.5);
+    color: #1e1f29;
+    text-shadow: 0 0 3px rgba(189, 147, 249, 0.5);
 }
 
 
 #taskbar {
-    background: #FAF0E6;
+    background: rgba(68, 71, 90, 0.5);
     border: none;
-    color: #8B7355;
+    color: #bd93f9;
 
     margin-right: 8px;
     border-radius: 12px;
     min-width: 35px;
 
-    /*box-shadow: rgba(139, 115, 85, 0.15) 2px 2px 4px 1px;*/
+    box-shadow: rgba(98, 114, 164, 0.2) 2px 2px 4px 1px;
     padding: 4px;
     padding-top: 3px;
     padding-bottom: 2px;
@@ -122,9 +123,9 @@ window#waybar {
 
 
 #custom-distro-icon {
-    background: linear-gradient(135deg, #F5DEB3 0%, #D2B48C 50%, #C9A87C 100%);
+    background: linear-gradient(135deg, #d4b5f7 0%, #bd93f9 50%, #a87fe6 100%);
     background-size: 200% 200%;
-    color: #3D2817;
+    color: #1e1f29;
     margin-top: 8px;
     margin-right: 8px;
     margin-left: 20px;
