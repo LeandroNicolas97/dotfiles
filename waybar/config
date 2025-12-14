@@ -1,48 +1,107 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 34,
-    "spacing": 4,
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
+    "height": 25,
+    "spacing": 2,
+    "margin-bottom":-10,
+
+    "modules-left": [
+        "custom/distro-icon",
+        "hyprland/workspaces",
+        "wlr/taskbar"
+    ],
+
+    "modules-center": [
+        "custom/spotify"
+    ],
+
+    "modules-right": [
+        "wireplumber",
+        "network",
+        "memory",
+        "battery",
+        "clock"
+    ],
+
     "hyprland/workspaces": {
-        "format": "{id}",
-        "on-click": "activate"
+        "format": "{id}"
     },
-    "hyprland/window": {
+
+    "custom/distro-icon": {
         "format": "{}",
+        "interval": "once",
+        "tooltip": false,
+        "exec": "$HOME/.config/waybar/get_distro_icon.sh"
+    },
+
+    "custom/spotify": {
+        "format": " {}",
         "max-length": 50,
-        "rewrite": {
-            "kitty": " kitty",
-            "org.kde.dolphin": "󰉋 dolphin",
-            "brave-browser": " brave",
-            "(.*) - Brave": " $1",
-            "(.*) — Dolphin": "󰉋 $1"
-        }
+        "interval": 1,
+        "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null",
+        "exec-if": "pgrep spotify"
     },
-    "clock": {
-        "format": " {:%H:%M   %d/%m}"
+
+    "wireplumber": {
+        "format": "  {volume}%",
+        "format-muted": "󰖁 {volume}%",
+        "format-icons": ["", "", "󰕾", ""],
+        "tooltip": false
     },
-    "cpu": {
-        "format": " {usage}%"
-    },
-    "memory": {
-        "format": " {}%"
-    },
+
     "battery": {
-        "format": "{icon} {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format": "󰂄  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false
     },
+
+    "clock": {
+        "format": "󰥔 {:%H:%M   %d/%m/%Y}",
+        "tooltip": false
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%",
+        "tooltip": false
+    },
+
+    "memory": {
+        "interval": 1,
+        "format": "󰍛 {percentage}%",
+        "tooltip": false
+    },
+
     "network": {
-        "format-wifi": " {signalStrength}%",
-        "format-ethernet": " eth"
+        "on-click": "alacritty -e nmtui",
+        "format-wifi": "󰖩 {essid}",
+        "format-ethernet": "󰈀 {ifname}",
+        "format-disconnected": "󰖪 Disconnected",
+        "tooltip": false
     },
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-icons": ["", "", ""]
-    },
+
     "tray": {
+        "icon-size": 18,
         "spacing": 10
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 22,
+        "icon-theme": "Numix-Circle",
+        "tooltip": false,
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "Alacritty"
+        ],
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
+        },
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "Foot Server": "Terminal"
+        }
     }
+
 }

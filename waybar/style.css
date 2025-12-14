@@ -1,126 +1,132 @@
-/* Dracula Theme Transparente */
+
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
-    font-size: 13px;
-    min-height: 0;
+    font-family: FiraCode Nerd Font;
+    font-size: 12px;
 }
 
 window#waybar {
-    background: rgba(40, 42, 54, 0.85);
-    color: #f8f8f2;
-    border-bottom: 2px solid rgba(189, 147, 249, 0.5);
+    background-color: transparent;
 }
 
-/* Workspaces */
-#workspaces button {
-    padding: 0 12px;
-    color: #6272a4;
-    background: transparent;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s ease;
-}
-
-#workspaces button.active {
-    color: #bd93f9;
-    background: rgba(189, 147, 249, 0.15);
-    border-bottom: 3px solid #bd93f9;
-}
-
-#workspaces button:hover {
-    background: rgba(98, 114, 164, 0.3);
-    color: #f8f8f2;
-}
-
-#workspaces button.urgent {
-    color: #ff5555;
-    border-bottom: 3px solid #ff5555;
-}
-
-/* Window */
-#window {
-    color: #f8f8f2;
-    font-weight: 500;
-}
-
-/* Clock - Destacado */
-#clock {
-    padding: 0 15px;
-    background: rgba(189, 147, 249, 0.3);
-    color: #f8f8f2;
+#window label {
+    background-color: red;
     font-weight: bold;
-    border-radius: 10px;
-    margin: 3px;
-    border: 1px solid rgba(189, 147, 249, 0.5);
 }
 
-/* Módulos individuales */
-#pulseaudio {
-    color: #ffb86c;
+#workspaces {
+    margin-top: 6px;
+    margin-right: 6px;
+}
+
+#workspaces button{
+    color: #9B8268;
+    background: #F5E6D3;
+    margin-right: 8px;
+    border-radius: 12px;
+
+    box-shadow: rgba(139, 115, 85, 0.15) 2px 2px 4px 1px;
+    padding: 12px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    font-weight: bolder;
+}
+
+#workspaces button.active{
+    background: linear-gradient(135deg, #F5DEB3 0%, #D2B48C 50%, #C9A87C 100%);
+    background-size: 200% 200%;
+    color: #3D2817;
+    font-weight: bolder;
+}
+
+#window,
+#cpu,
+#memory,
+#network,
+#wireplumber,
+#clock,
+#custom-spotify,
+#custom-distro-icon,
+#battery {
+    margin-right: 8px;
+    border-radius: 12px;
+
+    box-shadow: rgba(139, 115, 85, 0.15) 2px 2px 4px 1px;
+    padding: 12px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    font-weight: bolder;
+
+    margin-top: 8px;
+}
+
+#wireplumber {
+    color: #7C6854;
+    background: #F4E4C1;
 }
 
 #network {
-    color: #8be9fd;
+    color: #8B7355;
+    background: #FFF8DC;
 }
 
 #cpu {
-    color: #50fa7b;
+    color: #6B5744;
+    background: #FAEBD7;
 }
 
 #memory {
-    color: #ff79c6;
+    color: #7D6E5D;
+    background: #FFE4C4;
 }
 
 #battery {
-    color: #f1fa8c;
+    color: #9B8268;
+    background: #F5DEB3;
 }
 
-#battery.charging {
-    color: #50fa7b;
+#custom-spotify {
+    color: #8B7355;
+    background: #EFE2BA;
 }
 
-#battery.warning:not(.charging) {
-    color: #ffb86c;
-    animation: pulse 2s ease-in-out infinite;
+#clock {
+    background: linear-gradient(118deg, #F5DEB3 5%, #E8D4B0 5%, #E8D4B0 20%, #F5DEB3 20%, #F5DEB3 40%, #E8D4B0 40%, #E8D4B0 60%, #F5DEB3 60%, #F5DEB3 80%, #E8D4B0 80%, #E8D4B0 95%, #F5DEB3 95%);
+
+    background-size: 200% 300%;
+
+    animation: gradient_f_nh 4s linear infinite;
+    margin-right: 20px;
+    color: #3D2817;
+    text-shadow: 0 0 3px rgba(245, 222, 179, 0.5);
 }
 
-#battery.critical:not(.charging) {
-    color: #ff5555;
-    animation: blink 1s linear infinite;
+
+#taskbar {
+    background: #FAF0E6;
+    border: none;
+    color: #8B7355;
+
+    margin-right: 8px;
+    border-radius: 12px;
+    min-width: 35px;
+
+    /*box-shadow: rgba(139, 115, 85, 0.15) 2px 2px 4px 1px;*/
+    padding: 4px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    font-weight: bolder;
+
+    margin-top: 8px;
 }
 
-@keyframes blink {
-    50% {
-        background: rgba(255, 85, 85, 0.3);
-    }
-}
 
-@keyframes pulse {
-    50% {
-        opacity: 0.7;
-    }
-}
 
-#network.disconnected {
-    color: #ff5555;
-}
-
-#pulseaudio.muted {
-    color: #6272a4;
-}
-
-/* Tray */
-#tray {
-    background: transparent;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background: rgba(255, 121, 198, 0.3);
-    border-radius: 8px;
+#custom-distro-icon {
+    background: linear-gradient(135deg, #F5DEB3 0%, #D2B48C 50%, #C9A87C 100%);
+    background-size: 200% 200%;
+    color: #3D2817;
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-left: 20px;
+    font-size: 22px;
 }
