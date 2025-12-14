@@ -1,0 +1,55 @@
+# Configuración de Mako - Daemon de notificaciones para Wayland
+
+# Apariencia general
+font=Sans 11
+background-color=#f5f1eaDD
+text-color=#2d2a24
+border-color=#d4c5b0
+border-size=2
+border-radius=20
+padding=15
+margin=10
+width=350
+height=150
+
+# Iconos
+icon-path=/usr/share/icons/Papirus-Dark
+max-icon-size=64
+icons=1
+
+# Comportamiento
+default-timeout=5000
+ignore-timeout=0
+
+# Sonidos de notificación - Reproducir sonido según urgencia
+# Nota: mako ejecuta el comando on-notify antes de mostrar la notificación
+
+# Sonido para notificaciones normales (puedes desactivar si es muy molesto)
+# on-notify=exec paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga
+
+# Notificaciones críticas (batería, alertas importantes)
+[urgency=critical]
+background-color=#f5d4c4DD
+text-color=#8b2e1f
+border-color=#d4917a
+default-timeout=0
+on-notify=exec paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
+
+# Notificaciones bajas (menos importantes)
+[urgency=low]
+background-color=#f9f7f3DD
+text-color=#5a5751
+border-color=#e0ddd6
+default-timeout=3000
+
+# Notificaciones normales con sonido suave
+[urgency=normal]
+on-notify=exec paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga
+
+# Personalización para Discord - Notificaciones persistentes con sonido característico
+[app-name="discord" app-name="Discord"]
+default-timeout=0
+background-color=#5865F2DD
+text-color=#FFFFFF
+border-color=#5865F2
+on-notify=exec paplay /usr/share/sounds/freedesktop/stereo/window-attention.oga
