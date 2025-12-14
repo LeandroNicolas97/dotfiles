@@ -14,27 +14,27 @@ $character"""
 
 # Usuario (tu nombre)
 [username]
-style_user = "bold yellow"
-style_root = "bold red"
-format = "[$user](bold yellow)/"
-disabled = false
+style_user = "bold blue"
+style_root = "bold cyan"
+format = "[$user](bold blue)/"
+disabled = true
 show_always = true
 
 # Hostname (DESACTIVADO)
 [hostname]
 disabled = true
 
-# Directorio actual (solo mostrar nombre actual, no ruta completa)
+# Directorio actual (mostrar ruta con varios niveles)
 [directory]
-truncation_length = 1
+truncation_length = 3
 truncate_to_repo = false
 style = "bold cyan"
-format = "[$path]($style)/"
+format = "[$path]($style)"
 
 # Rama de Git
 [git_branch]
-symbol = " 🌿"
-style = "bold purple"
+symbol = "  "
+style = "bold green"
 format = "[$symbol$branch]($style) "
 
 # Estado de Git
@@ -60,7 +60,11 @@ error_symbol = "[❯](bold red)"
 # Lenguajes (opcional)
 [python]
 symbol = " "
-format = 'via [$symbol($version )]($style)'
+style = "bold yellow"
+format = '[$symbol($virtualenv)]($style) '
+detect_extensions = []
+detect_files = []
+detect_folders = []
 
 [nodejs]
 symbol = " "
