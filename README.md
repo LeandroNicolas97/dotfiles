@@ -1,225 +1,444 @@
 # Arch Linux Dotfiles
 
-Configuración personal de Arch Linux con Hyprland + Waybar + Kitty.
+Configuración personal de Arch Linux con Hyprland + Waybar + Kitty, optimizada para sincronización entre múltiples máquinas.
 
 ## 🎨 Configuraciones incluidas
 
 ### Window Manager y Compositing
 - **Hyprland**: Window manager dinámico para Wayland con animaciones y efectos
-- **Pyprland**: Plugin manager para Hyprland con funcionalidades extra
-- **hyprland-plugin-hyprexpo**: Plugin para Hyprland con vista expo de workspaces
+- **Pyprland**: Plugin manager con funcionalidad de exposé/overview
+- **Swayidle** + **Swaylock-effects**: Gestión de bloqueo automático con efectos
 
 ### Interfaz de Usuario
-- **Waybar**: Barra de estado customizable con tema Dracula
-- **Rofi**: Launcher de aplicaciones y menús con múltiples temas
-- **Mako**: Sistema de notificaciones para Wayland
+- **Waybar**: Barra de estado customizable con tema Dracula y scripts personalizados
+- **Rofi**: 7 tipos de launchers, 6 powermenus y múltiples applets (volumen, brillo, etc)
+- **Mako**: Sistema de notificaciones con sonidos y estilos por urgencia
 - **Wlogout**: Menú de logout/shutdown elegante
-- **Swaylock-effects**: Lockscreen con efectos y blur
+- **Swaybg**: Gestor de wallpapers para Wayland
 
 ### Terminal y Shell
 - **Kitty**: Terminal emulator con GPU acceleration y transparencia
-- **Zsh**: Shell avanzado con Oh-My-Zsh framework
+- **Zsh**: Shell avanzado con Oh-My-Zsh
 - **Starship**: Prompt minimalista y personalizable
 
 ### Utilidades de Sistema
-- **Btop**: Monitor de recursos del sistema (CPU, RAM, red, procesos)
-- **Fastfetch**: Información del sistema con estilo
-- **Ranger**: File manager para terminal con preview de archivos
-- **Neovim**: Editor de texto modal altamente configurable
+- **Btop**: Monitor de recursos (CPU, RAM, red, procesos)
+- **Fastfetch**: Información del sistema
+- **Ranger**: File manager para terminal
+- **Neovim**: Editor modal con configuración Lua
 
 ### Temas y Apariencia
-- **Dracula GTK Theme**: Tema Dracula para aplicaciones GTK
-- **Dracula Icons**: Iconos con tema Dracula
-- **SDDM Astronaut Theme**: Tema para display manager SDDM
+- **Dracula GTK Theme** + **Dracula Icons**: Tema consistente
+- **SDDM Themes**: Astronaut y Silent
 - **Papirus Icon Theme**: Pack de iconos alternativo
+- **Nerd Fonts**: JetBrains Mono, FiraCode, Hack, Meslo
 
 ### CLI Tools y Productividad
-- **Bat**: Clon de `cat` con syntax highlighting
-- **Eza**: Reemplazo moderno de `ls` con colores y git integration
-- **Lsd**: Otro alternativa a `ls` con iconos
+- **Bat**: `cat` con syntax highlighting
+- **Eza** + **Lsd**: Alternativas modernas a `ls`
 - **Fzf**: Fuzzy finder para terminal
-- **Ripgrep**: Búsqueda de texto ultra-rápida (grep alternativo)
-- **Lazygit**: TUI para Git con interfaz intuitiva
-- **Gum**: Utilidad para crear shell scripts con estilo
+- **Ripgrep**: Búsqueda ultra-rápida
+- **Lazygit**: TUI para Git
+- **Gum**: Shell scripts con estilo
+- **Cliphist**: Historial del portapapeles
 
 ### Multimedia
-- **Pipewire**: Servidor de audio moderno
-- **Pavucontrol**: Control de volumen gráfico
-- **Playerctl**: Control de reproductores multimedia
-- **Grim + Slurp**: Captura de pantalla para Wayland
+- **Pipewire** + **Wireplumber**: Audio moderno
+- **Pavucontrol**: Control de volumen
+- **VLC** + **Discord**: Aplicaciones multimedia
+- **Grim** + **Slurp**: Screenshots para Wayland
 
-## 📦 Instalación en nuevo sistema
+---
 
-### 1. Clonar repositorio
+## 📦 Instalación en Sistema Nuevo
+
+### Opción 1: Instalación Automática (Recomendado)
+
 ```bash
-git clone git@github.com:LeandroNicolas97/dotfiles.git ~/dotfiles
+# 1. Clonar repositorio
+git clone https://github.com/LeandroNicolas97/dotfiles.git ~/dotfiles
 cd ~/dotfiles
+
+# 2. Ejecutar instalador completo
+./install.sh
 ```
 
-### 2. Instalar paquetes
+El script `install.sh` hace todo automáticamente:
+- ✅ Actualiza mirrors de Arch
+- ✅ Instala todos los paquetes (oficiales + AUR)
+- ✅ Crea symlinks con backup automático
+- ✅ Configura locales
+- ✅ Da permisos de ejecución a scripts
+- ✅ Maneja errores y dependencias rotas
+
+### Opción 2: Instalación Manual (Paso a Paso)
+
 ```bash
-chmod +x install-packages.sh
+# 1. Clonar repositorio
+git clone https://github.com/LeandroNicolas97/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+
+# 2. Actualizar sistema y mirrors (IMPORTANTE)
+sudo pacman -Syy
+sudo pacman -Syu
+
+# 3. Instalar yay (si no está instalado)
+cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ~/dotfiles
+
+# 4. Instalar paquetes
 ./install-packages.sh
-```
 
-### 3. Crear symlinks (configuraciones)
-```bash
-chmod +x setup-symlinks.sh
+# 5. Configurar symlinks
 ./setup-symlinks.sh
+
+# 6. Generar locale (si hay warnings)
+sudo sed -i 's/^#es_CL.UTF-8/es_CL.UTF-8/' /etc/locale.gen
+sudo locale-gen
+
+# 7. Recargar Hyprland o cerrar sesión
 ```
 
-### 4. Reiniciar sesión
-```bash
-# Cerrar sesión y volver a entrar
-# o reiniciar Hyprland
-```
+---
 
-## ✏️ Workflow diario
+## 🔄 Workflow: Sincronización entre Laptops
 
-### Editar configuraciones
+### Script de Sincronización
 
-Se deben editar los archivos en `~/.config/`:
-```bash
-# Window manager y UI
-nano ~/.config/hypr/hyprland.conf
-nano ~/.config/waybar/config
-nano ~/.config/rofi/config.rasi
-nano ~/.config/mako/config
+Usa `sync.sh` para mantener sincronizados tus dotfiles entre múltiples máquinas:
 
-# Terminal y shell
-nano ~/.config/kitty/kitty.conf
-nano ~/.zshrc
-nano ~/.config/starship.toml
-
-# Otras utilidades
-nano ~/.config/btop/btop.conf
-nano ~/.config/ranger/rc.conf
-nano ~/.config/nvim/init.lua
-```
-
-Los cambios se aplican inmediatamente y se sincronizan automáticamente con `~/dotfiles/`.
-
-### Usar Rofi
-```bash
-# Launcher de aplicaciones (distintos estilos)
-~/.config/rofi/launchers/type-1/launcher.sh
-
-# Power menu
-~/.config/rofi/powermenu/type-1/powermenu.sh
-
-# Applets (volumen, brillo, etc)
-~/.config/rofi/applets/bin/volume.sh
-~/.config/rofi/applets/bin/brightness.sh
-```
-
-### Subir cambios a GitHub
 ```bash
 cd ~/dotfiles
 
-# Ver cambios
-git status
-git diff
+# Ver estado actual
+./sync.sh status
 
-# Commit y push
-git add .
-git commit -m "Descripción de cambios"
-git push origin main
+# Descargar cambios desde GitHub (desde otra laptop)
+./sync.sh pull
+
+# Subir cambios a GitHub (después de editar configs)
+./sync.sh push
+
+# Sincronización completa (pull + instalar faltantes + push)
+./sync.sh sync
 ```
 
-### Actualizar lista de paquetes
+### Flujo de Trabajo Diario
+
+**En Laptop A (donde haces cambios):**
+```bash
+# 1. Editar configuraciones
+nvim ~/.config/hypr/hyprland.conf
+nvim ~/.config/waybar/config
+
+# 2. Probar cambios
+hyprctl reload
+
+# 3. Subir a GitHub cuando estés satisfecho
+cd ~/dotfiles
+./sync.sh push
+```
+
+**En Laptop B (para aplicar cambios):**
+```bash
+# 1. Descargar cambios
+cd ~/dotfiles
+./sync.sh pull
+
+# 2. Si hay paquetes nuevos, instalarlos
+./sync.sh sync
+
+# 3. Recargar Hyprland
+hyprctl reload
+```
+
+### Actualizar Lista de Paquetes
+
+Cuando instalas software nuevo, actualiza la lista:
+
 ```bash
 cd ~/dotfiles
 
-# Actualizar listas
+# Actualizar automáticamente
 pacman -Qqe > packages.txt
 pacman -Qqm > packages-aur.txt
 
-# Push
+# Subir cambios
 git add packages*.txt
 git commit -m "Update package list"
 git push origin main
 ```
 
-## 📁 Estructura
+---
+
+## 🛠️ Troubleshooting
+
+### Problema: Conflictos de Dependencias
+
+```bash
+# Solución: Actualizar sistema completo primero
+sudo pacman -Syu
+
+# Luego intentar instalar paquetes
+cd ~/dotfiles
+./install.sh
+```
+
+### Problema: Mirrors lentos o con errores 404
+
+```bash
+# Actualizar mirrors con reflector
+sudo pacman -S reflector
+sudo reflector --country Chile --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+sudo pacman -Syy
+```
+
+### Problema: Warnings de locale (setlocale)
+
+```bash
+# Generar locale español Chile
+sudo sed -i 's/^#es_CL.UTF-8/es_CL.UTF-8/' /etc/locale.gen
+sudo locale-gen
+```
+
+### Problema: Errores de "overview" en Hyprland
+
+```bash
+# Ya está solucionado en la última versión
+# Si persiste, recargar config
+hyprctl reload
+```
+
+### Problema: Paquetes AUR no se instalan
+
+```bash
+# Instalar yay primero
+cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+# Luego intentar de nuevo
+cd ~/dotfiles
+yay -S --needed - < packages-aur.txt
+```
+
+---
+
+## 📁 Estructura del Repositorio
+
 ```
 dotfiles/
-├── hyprland/              # Hyprland configs
-│   ├── hyprland.conf
-│   ├── pyprland.toml
+├── hyprland/              # Hyprland config
+│   ├── hyprland.conf      # Config principal
+│   ├── pyprland.toml      # Config de pyprland (exposé)
 │   ├── random-wallpaper.sh
 │   ├── workspace-switcher.sh
 │   └── scripts/
-├── waybar/                # Waybar configs
-│   ├── config
-│   ├── style.css
-│   └── scripts/
-├── rofi/                  # Rofi launcher configs
+│       ├── zoom.sh        # Control de zoom del monitor
+│       └── random-wallpaper.sh
+├── waybar/                # Waybar
+│   ├── config             # Configuración principal
+│   ├── style.css          # Estilos Dracula
+│   ├── get_distro_icon.sh
+│   ├── hyprland-workspaces.sh
+│   ├── workspace-icons.sh
+│   └── mediaplayer.sh
+├── rofi/                  # Rofi launchers y menus
 │   ├── config.rasi
-│   ├── launchers/         # Múltiples estilos de launcher
-│   ├── powermenu/         # Menús de apagado
+│   ├── theme.rasi
+│   ├── launchers/         # 7 tipos de launchers
+│   │   ├── type-1/        # 15 estilos cada uno
+│   │   ├── type-2/
+│   │   └── ...
+│   ├── powermenu/         # 6 tipos de powermenus
 │   ├── applets/           # Applets (volumen, brillo, etc)
-│   └── colors/            # Temas de color
+│   │   └── bin/
+│   │       ├── volume.sh
+│   │       ├── brightness.sh
+│   │       ├── screenshot.sh
+│   │       └── ...
+│   └── colors/            # 16 esquemas de color
 ├── mako/                  # Notificaciones
-│   └── config
+│   └── config             # Config con sonidos y estilos
+├── kitty/                 # Terminal
+│   └── kitty.conf
 ├── btop/                  # Monitor de sistema
 │   └── themes/
-├── kitty/                 # Kitty terminal
-│   └── kitty.conf
-├── fastfetch/             # Fastfetch config
-│   └── config.jsonc
-├── ranger/                # Ranger file manager
-│   ├── rc.conf
-│   ├── rifle.conf
-│   └── scope.sh
-├── nvim/                  # Neovim config
+├── nvim/                  # Neovim
 │   ├── init.lua
 │   └── lua/
-├── zsh/                   # Zsh configs
-│   ├── .zshrc
-│   └── history
-├── starship/              # Starship prompt
+├── zsh/                   # Shell
+│   └── .zshrc
+├── starship/              # Prompt
 │   └── starship.toml
+├── fastfetch/             # System info
+│   └── config.jsonc
+├── ranger/                # File manager
+│   └── rc.conf
 ├── packages.txt           # Paquetes oficiales
 ├── packages-aur.txt       # Paquetes AUR
+├── install.sh             # ⭐ Instalador automático
+├── sync.sh                # ⭐ Sincronizador entre laptops
+├── install-packages.sh    # Script de paquetes
 ├── setup-symlinks.sh      # Script de symlinks
-├── install-packages.sh    # Script de instalación
-├── arch-install.md        # Guía de instalación de Arch
-└── README.md
+├── check-installation.sh  # Verificador de instalación
+├── fix-locale.sh          # Solucionador de locales
+└── README.md              # Este archivo
 ```
 
-## 🎹 Atajos útiles (Hyprland)
+---
 
-Configurados en `~/.config/hypr/hyprland.conf`:
+## 🎹 Atajos de Teclado (Hyprland)
+
+### Ventanas y Navegación
 ```
-SUPER + Q          - Cerrar ventana
-SUPER + Return     - Abrir terminal (Kitty)
-SUPER + D          - Rofi launcher
-SUPER + Shift + E  - Power menu
-SUPER + L          - Lockscreen (swaylock)
-SUPER + [1-9]      - Cambiar a workspace
-SUPER + B          - Toggle waybar
-SUPER + F          - Fullscreen
-SUPER + V          - Toggle floating
-SUPER + Mouse      - Mover/redimensionar ventanas
-Print              - Screenshot (grim + slurp)
+SUPER + Q              - Cerrar ventana
+SUPER + V              - Toggle floating
+SUPER + F              - Fullscreen
+SUPER + P              - Pseudo (tiling especial)
+SUPER + J/K/L/I        - Mover foco (vim keys)
+SUPER + Shift + J/K/L  - Mover ventana
+SUPER + Mouse izq      - Mover ventana
+SUPER + Mouse der      - Redimensionar ventana
 ```
 
-## 📝 Notas
+### Aplicaciones
+```
+SUPER + Return         - Terminal (Kitty)
+SUPER + D              - Rofi launcher
+SUPER + Shift + E      - Power menu
+SUPER + L              - Lockscreen (swaylock)
+SUPER + H              - Navegador
+SUPER + S              - Spotify
+```
 
-- Las configuraciones se mantienen sincronizadas automáticamente via symlinks
-- Los backups se crean como `.backup` antes de crear symlinks
-- Se debe actualizar `packages.txt` periódicamente para mantener sincronizadas ambas máquinas
-- Las aplicaciones recargan configuraciones automáticamente (excepto Hyprland, requiere reinicio)
-- Rofi incluye múltiples temas y estilos, editables en `~/.config/rofi/`
-- Mako muestra notificaciones en la esquina superior derecha
-- Btop se puede abrir con el comando `btop` en terminal
-- Los scripts de Hyprland están en `~/.config/hypr/scripts/`
+### Workspaces
+```
+SUPER + [1-9]          - Cambiar a workspace
+SUPER + Shift + [1-9]  - Mover ventana a workspace
+SUPER + TAB            - Exposé (ver todos los workspaces)
+SUPER + Mouse scroll   - Cambiar workspace
+```
 
-## 🔐 SSH en nuevo sistema
+### Sistema
+```
+SUPER + B              - Toggle waybar
+SUPER + N              - Recargar waybar
+Print                  - Screenshot (grim + slurp)
+SUPER + Shift + R      - Recargar Hyprland
+```
 
-Para clonar en un sistema nuevo, se debe configurar SSH:
+---
+
+## 📝 Editar Configuraciones
+
+Las configuraciones están en `~/.config/` y se sincronizan automáticamente con `~/dotfiles/`:
+
 ```bash
-ssh-keygen -t ed25519 -C "leandroatero97@gmail.com"
-cat ~/.ssh/id_ed25519.pub
-# Agregar la clave a: https://github.com/settings/keys
+# Window manager
+nvim ~/.config/hypr/hyprland.conf
+nvim ~/.config/hypr/pyprland.toml
+
+# UI y apariencia
+nvim ~/.config/waybar/config
+nvim ~/.config/waybar/style.css
+nvim ~/.config/rofi/config.rasi
+nvim ~/.config/mako/config
+
+# Terminal y shell
+nvim ~/.config/kitty/kitty.conf
+nvim ~/.zshrc
+nvim ~/.config/starship.toml
+
+# Otras herramientas
+nvim ~/.config/btop/btop.conf
+nvim ~/.config/nvim/init.lua
 ```
+
+**Los cambios se aplican automáticamente** (excepto Hyprland que necesita `hyprctl reload`).
+
+---
+
+## 🎨 Personalización Rápida
+
+### Cambiar Launcher de Rofi
+```bash
+# Probar diferentes estilos
+~/.config/rofi/launchers/type-1/launcher.sh
+~/.config/rofi/launchers/type-2/launcher.sh
+# ... hasta type-7
+
+# Cada tipo tiene múltiples estilos en style-1.rasi, style-2.rasi, etc
+```
+
+### Cambiar Tema de Color de Rofi
+```bash
+# Editar ~/.config/rofi/colors/ y seleccionar uno de:
+# - dracula.rasi (actual)
+# - catppuccin.rasi
+# - nord.rasi
+# - tokyonight.rasi
+# - gruvbox.rasi
+# ... 16 temas disponibles
+```
+
+### Cambiar Wallpaper
+```bash
+# Script de wallpaper aleatorio
+~/.config/hypr/random-wallpaper.sh
+
+# O configurar wallpaper fijo en hyprland.conf:
+# exec-once = swaybg -i ~/Wallpapers/tu-imagen.jpg
+```
+
+---
+
+## 🔐 Configuración SSH (Para Nuevo Sistema)
+
+```bash
+# Generar clave SSH
+ssh-keygen -t ed25519 -C "tu-email@example.com"
+
+# Copiar clave pública
+cat ~/.ssh/id_ed25519.pub
+
+# Agregar a GitHub: https://github.com/settings/keys
+```
+
+---
+
+## 📚 Scripts Útiles
+
+| Script | Descripción |
+|--------|-------------|
+| `install.sh` | Instalación completa automática |
+| `sync.sh` | Sincronización entre laptops |
+| `check-installation.sh` | Verificar qué paquetes están instalados |
+| `fix-locale.sh` | Solucionar warnings de locale |
+| `update-system.sh` | Actualizar sistema completo |
+
+---
+
+## 🌟 Características Destacadas
+
+- ✅ **Instalación automatizada** con manejo de errores
+- ✅ **Sincronización entre laptops** con un comando
+- ✅ **Symlinks automáticos** con backup de configs existentes
+- ✅ **Temas consistentes** (Dracula en todo el sistema)
+- ✅ **Scripts robustos** que manejan dependencias rotas
+- ✅ **Documentación completa** con troubleshooting
+- ✅ **Configuración modular** fácil de personalizar
+
+---
+
+## 🤝 Contribuir
+
+Este es un repositorio personal, pero si encuentras algo útil, siéntete libre de hacer fork y adaptarlo a tus necesidades.
+
+## 📄 Licencia
+
+MIT License - Uso libre
