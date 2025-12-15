@@ -46,6 +46,7 @@ window#waybar {
 #wireplumber,
 #clock,
 #custom-spotify,
+#custom-cava,
 #custom-distro-icon,
 #battery {
     margin-right: 8px;
@@ -62,12 +63,12 @@ window#waybar {
 
 #wireplumber {
     color: #f8f8f2;
-    background: rgba(139, 233, 253, 0.5);
+    background: rgba(212, 101, 237, 0.35);
 }
 
 #network {
     color: #f8f8f2;
-    background: rgba(80, 250, 123, 0.5);
+    background: rgba(189, 147, 249, 0.45);
 }
 
 #cpu {
@@ -82,12 +83,19 @@ window#waybar {
 
 #battery {
     color: #f8f8f2;
-    background: rgba(241, 250, 140, 0.5);
+    background: rgba(221, 170, 220, 0.45);
 }
 
 #custom-spotify {
     color: #f8f8f2;
-    background: rgba(189, 147, 249, 0.5);
+    background: rgba(189, 147, 249, 0.8);
+}
+
+#custom-cava {
+    color: #bd93f9;
+    background: rgba(68, 71, 90, 0.6);
+    font-size: 14px;
+    letter-spacing: 2px;
 }
 
 #clock {

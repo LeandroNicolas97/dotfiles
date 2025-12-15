@@ -1,0 +1,21 @@
+[general]
+bars = 8
+framerate = 60
+
+[input]
+method = pulse
+
+[output]
+method = raw
+raw_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 7
+
+[smoothing]
+noise_reduction = 77
+
+[color]
+gradient = 1
+gradient_count = 2
+gradient_color_1 = '#bd93f9'
+gradient_color_2 = '#ff79c6'

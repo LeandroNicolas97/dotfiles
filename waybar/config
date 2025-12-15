@@ -12,6 +12,7 @@
     ],
 
     "modules-center": [
+        "custom/cava",
         "custom/spotify"
     ],
 
@@ -40,6 +41,12 @@
         "interval": 1,
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null",
         "exec-if": "pgrep spotify"
+    },
+
+    "custom/cava": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/cava-waybar.sh",
+        "tooltip": false
     },
 
     "wireplumber": {
