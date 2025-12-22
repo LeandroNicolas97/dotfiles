@@ -1,8 +1,7 @@
-
-/* Dracula Cremoso - Paleta de colores suaves */
+/* Tema Negro Oscuro - Minimalista y elegante */
 * {
     font-family: FiraCode Nerd Font;
-    font-size: 12px;
+    font-size: 7px;
 }
 
 window#waybar {
@@ -20,12 +19,11 @@ window#waybar {
 }
 
 #workspaces button{
-    color: #bd93f9;
-    background: rgba(68, 71, 90, 0.6);
+    color: #e0e0e0;
+    background: rgba(20, 20, 20, 0.85);
     margin-right: 8px;
     border-radius: 12px;
-
-    box-shadow: rgba(189, 147, 249, 0.2) 2px 2px 4px 1px;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px 1px;
     padding: 12px;
     padding-top: 3px;
     padding-bottom: 2px;
@@ -33,9 +31,9 @@ window#waybar {
 }
 
 #workspaces button.active{
-    background: linear-gradient(135deg, #d4b5f7 0%, #bd93f9 50%, #a87fe6 100%);
+    background: linear-gradient(135deg, #303030 0%, #1a1a1a 50%, #0a0a0a 100%);
     background-size: 200% 200%;
-    color: #1e1f29;
+    color: #ffffff;
     font-weight: bolder;
 }
 
@@ -51,89 +49,79 @@ window#waybar {
 #battery {
     margin-right: 8px;
     border-radius: 12px;
-
-    box-shadow: rgba(98, 114, 164, 0.25) 2px 2px 4px 1px;
+    box-shadow: rgba(0, 0, 0, 0.6) 2px 2px 4px 1px;
     padding: 12px;
     padding-top: 3px;
     padding-bottom: 2px;
     font-weight: bolder;
-
     margin-top: 8px;
 }
 
 #wireplumber {
-    color: #f8f8f2;
-    background: rgba(212, 101, 237, 0.35);
+    color: #f0f0f0;
+    background: rgba(25, 25, 25, 0.9);
 }
 
 #network {
-    color: #f8f8f2;
-    background: rgba(189, 147, 249, 0.45);
+    color: #f0f0f0;
+    background: rgba(20, 20, 20, 0.9);
 }
 
 #cpu {
-    color: #f8f8f2;
-    background: rgba(255, 184, 108, 0.5);
+    color: #f0f0f0;
+    background: rgba(30, 30, 30, 0.9);
 }
 
 #memory {
-    color: #f8f8f2;
-    background: rgba(255, 121, 198, 0.5);
+    color: #f0f0f0;
+    background: rgba(28, 28, 28, 0.9);
 }
 
 #battery {
-    color: #f8f8f2;
-    background: rgba(221, 170, 220, 0.45);
+    color: #f0f0f0;
+    background: rgba(25, 25, 25, 0.9);
 }
 
 #custom-spotify {
-    color: #f8f8f2;
-    background: rgba(189, 147, 249, 0.8);
+    color: #f0f0f0;
+    background: rgba(18, 18, 18, 0.9);
 }
 
 #custom-cava {
-    color: #bd93f9;
-    background: rgba(68, 71, 90, 0.6);
+    color: #c0c0c0;
+    background: rgba(15, 15, 15, 0.9);
     font-size: 14px;
     letter-spacing: 2px;
 }
 
 #clock {
-    background: linear-gradient(118deg, #d4b5f7 5%, #bd93f9 5%, #bd93f9 20%, #d4b5f7 20%, #d4b5f7 40%, #bd93f9 40%, #bd93f9 60%, #d4b5f7 60%, #d4b5f7 80%, #bd93f9 80%, #bd93f9 95%, #d4b5f7 95%);
-
+    background: linear-gradient(118deg, rgba(35, 35, 35, 0.9) 5%, rgba(15, 15, 15, 0.9) 5%, rgba(15, 15, 15, 0.9) 20%, rgba(35, 35, 35, 0.9) 20%, rgba(35, 35, 35, 0.9) 40%, rgba(15, 15, 15, 0.9) 40%, rgba(15, 15, 15, 0.9) 60%, rgba(35, 35, 35, 0.9) 60%, rgba(35, 35, 35, 0.9) 80%, rgba(15, 15, 15, 0.9) 80%, rgba(15, 15, 15, 0.9) 95%, rgba(35, 35, 35, 0.9) 95%);
     background-size: 200% 300%;
-
     animation: gradient_f_nh 4s linear infinite;
     margin-right: 20px;
-    color: #1e1f29;
-    text-shadow: 0 0 3px rgba(189, 147, 249, 0.5);
+    color: #ffffff;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 
-
 #taskbar {
-    background: rgba(68, 71, 90, 0.5);
+    background: rgba(18, 18, 18, 0.9);
     border: none;
-    color: #bd93f9;
-
+    color: #e0e0e0;
     margin-right: 8px;
     border-radius: 12px;
     min-width: 35px;
-
-    box-shadow: rgba(98, 114, 164, 0.2) 2px 2px 4px 1px;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px 1px;
     padding: 4px;
     padding-top: 3px;
     padding-bottom: 2px;
     font-weight: bolder;
-
     margin-top: 8px;
 }
 
-
-
 #custom-distro-icon {
-    background: linear-gradient(135deg, #d4b5f7 0%, #bd93f9 50%, #a87fe6 100%);
+    background: linear-gradient(135deg, #303030 0%, #1a1a1a 50%, #0a0a0a 100%);
     background-size: 200% 200%;
-    color: #1e1f29;
+    color: #00d9ff;
     margin-top: 8px;
     margin-right: 8px;
     margin-left: 20px;

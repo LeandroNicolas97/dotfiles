@@ -4,9 +4,8 @@
 bar_chars=("▁" "▂" "▃" "▄" "▅" "▆" "▇" "█")
 
 # Ejecutar cava y procesar su salida
-cava -p ~/.config/waybar/cava-config | while IFS=';' read -ra values; do
+cava -p ~/.config/waybar/cava-config 2>/dev/null | while IFS=';' read -ra values; do
     # Verificar si hay música reproduciéndose
-    # Priorizar Spotify si está disponible, sino usar cualquier reproductor excepto navegadores
     if playerctl -l 2>/dev/null | grep -q spotify; then
         player_status=$(playerctl -p spotify status 2>/dev/null)
     else
@@ -15,15 +14,13 @@ cava -p ~/.config/waybar/cava-config | while IFS=';' read -ra values; do
 
     if [ "$player_status" = "Playing" ]; then
         output=""
-        # Convertir cada número en el carácter de barra correspondiente
         for val in "${values[@]}"; do
             if [[ "$val" =~ ^[0-7]$ ]]; then
                 output="${output}${bar_chars[$val]}"
             fi
         done
-        echo "$output"
+        echo "$output" 2>/dev/null || exit 0
     else
-        # Si no está reproduciendo, no mostrar nada
-        echo ""
+        echo "" 2>/dev/null || exit 0
     fi
 done

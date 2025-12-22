@@ -159,14 +159,6 @@ export FZF_CTRL_R_OPTS="--exact"
 export TERM=xterm-kitty
 export TERM=xterm-kitty
 
-<<<<<<< HEAD
-# Fastfetch con logo aleatorio
-LOGO_DIR="$HOME/.config/fastfetch/logos"
-RANDOM_LOGO=$(find "$LOGO_DIR" -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.webp" \) | shuf -n 1)
-
-# Ejecutar fastfetch directamente con la imagen aleatoria
-fastfetch --logo "$RANDOM_LOGO" --logo-type kitty --logo-width 35 --logo-height 20
-=======
 # Fastfetch
 fastfetch
 
@@ -175,7 +167,6 @@ if [ -f "$HOME/git/oxycontroller/.venv/bin/activate" ]; then
     source "$HOME/git/oxycontroller/.venv/bin/activate"
 fi
 
->>>>>>> 36aca32 (Update terminal and shell configurations)
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export LANG=es_CL.UTF-8

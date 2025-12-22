@@ -8,31 +8,60 @@ return {
         vim.notify("Node.js no está instalado. Por favor instala Node.js >= 12", vim.log.levels.ERROR)
         return
       end
-
       if vim.fn.executable('npm') == 0 then
         vim.notify("npm no está instalado. Por favor instala npm", vim.log.levels.ERROR)
         return
       end
-
       -- Instalar dependencias
       vim.fn["mkdp#util#install"]()
     end,
     config = function()
-      -- Configuración del navegador (intenta detectar automáticamente)
-      local browsers = { 'firefox', 'google-chrome', 'chromium-browser', 'microsoft-edge' }
-      local browser_found = nil
+      -- CONFIGURACIÓN PARA BRAVE BROWSER
+      -- Detectar Brave según el sistema operativo
+      local brave_path = nil
 
-      for _, browser in ipairs(browsers) do
-        if vim.fn.executable(browser) == 1 then
-          browser_found = browser
-          break
+      if vim.fn.has('mac') == 1 then
+        -- macOS
+        brave_path = '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'
+      elseif vim.fn.has('win32') == 1 then
+        -- Windows
+        brave_path = 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe'
+      else
+        -- Linux - intentar diferentes ubicaciones comunes
+        local linux_paths = {
+          '/usr/bin/brave-browser',
+          '/usr/bin/brave',
+          '/snap/bin/brave',
+          '/var/lib/flatpak/exports/bin/com.brave.Browser'
+        }
+        for _, path in ipairs(linux_paths) do
+          if vim.fn.executable(path) == 1 then
+            brave_path = path
+            break
+          end
         end
       end
 
-      if browser_found then
-        vim.g.mkdp_browser = browser_found
+      -- Configurar Brave si se encuentra
+      if brave_path and vim.fn.executable(brave_path) == 1 then
+        vim.g.mkdp_browser = '/usr/bin/brave'
+        vim.notify("✅ Brave Browser configurado correctamente", vim.log.levels.INFO)
       else
-        vim.notify("No se encontró navegador compatible. Instala Firefox o Chrome.", vim.log.levels.WARN)
+        -- Fallback a navegadores alternativos
+        local browsers = { 'firefox', 'google-chrome', 'chromium-browser', 'microsoft-edge' }
+        local browser_found = nil
+        for _, browser in ipairs(browsers) do
+          if vim.fn.executable(browser) == 1 then
+            browser_found = browser
+            break
+          end
+        end
+        if browser_found then
+          vim.g.mkdp_browser = browser_found
+          vim.notify("⚠️ Brave no encontrado. Usando: " .. browser_found, vim.log.levels.WARN)
+        else
+          vim.notify("❌ No se encontró ningún navegador compatible", vim.log.levels.ERROR)
+        end
       end
 
       -- Configuración principal
@@ -72,21 +101,13 @@ return {
           return
         end
 
-        -- Verificar si el archivo está guardado
-        if vim.bo.modified then
-          vim.notify("Guarda el archivo antes de abrir la vista previa", vim.log.levels.INFO)
-          return
-        end
-
-        -- Alternar vista previa
+        -- Alternar vista previa (no es necesario guardar antes)
         vim.cmd('MarkdownPreviewToggle')
 
         -- Dar feedback al usuario
-        if vim.g.mkdp_preview_active == 1 then
-          vim.notify("Vista previa abierta en " .. vim.g.mkdp_browser .. " en puerto " .. vim.g.mkdp_port, vim.log.levels.INFO)
-        else
-          vim.notify("Vista previa cerrada", vim.log.levels.INFO)
-        end
+        vim.defer_fn(function()
+          vim.notify("🚀 Vista previa en Brave (puerto " .. vim.g.mkdp_port .. ")", vim.log.levels.INFO)
+        end, 500)
       end
 
       -- Función para diagnóstico
@@ -113,23 +134,18 @@ return {
         if vim.g.mkdp_browser then
           table.insert(issues, "✅ Navegador: " .. vim.g.mkdp_browser)
         else
-          table.insert(issues, "❌ No se encontró navegador compatible")
+          table.insert(issues, "❌ No se configuró ningún navegador")
         end
 
         -- Verificar puerto
-        local port_check = vim.fn.system('netstat -tuln | grep :' .. vim.g.mkdp_port)
-        if port_check ~= '' then
-          table.insert(issues, "⚠️  Puerto " .. vim.g.mkdp_port .. " puede estar en uso")
-        else
-          table.insert(issues, "✅ Puerto " .. vim.g.mkdp_port .. " disponible")
-        end
+        table.insert(issues, "ℹ️  Puerto configurado: " .. vim.g.mkdp_port)
 
         -- Mostrar diagnóstico
-        vim.notify("Diagnóstico de Markdown Preview:\n" .. table.concat(issues, '\n'), vim.log.levels.INFO)
+        vim.notify(table.concat(issues, '\n'), vim.log.levels.INFO)
       end
 
       -- Mapeos de teclado
-      vim.keymap.set('n', '<C-l>', toggle_markdown_preview,
+      vim.keymap.set('n', '<C-p>', toggle_markdown_preview,
         { silent = true, desc = "Alternar vista previa de Markdown" })
 
       vim.keymap.set('n', '<leader>md', diagnose_markdown_preview,
