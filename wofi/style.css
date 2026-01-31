@@ -1,0 +1,67 @@
+/* Tema oscuro transparente - Matching kitty/waybar */
+
+window {
+    margin: 0px;
+    border: 2px solid rgba(80, 80, 80, 0.6);
+    border-radius: 15px;
+    background-color: rgba(20, 20, 20, 0.85);
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+#input {
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: rgba(35, 35, 35, 0.9);
+    color: #f8f8f2;
+    font-size: 14px;
+}
+
+#input:focus {
+    border: none;
+    box-shadow: 0 0 3px rgba(0, 217, 255, 0.5);
+}
+
+#inner-box {
+    margin: 5px 10px 10px 10px;
+    border: none;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 0px;
+    border: none;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    color: #e0e0e0;
+}
+
+#entry {
+    padding: 8px 10px;
+    margin: 3px 0px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+#entry:selected {
+    background: linear-gradient(135deg, rgba(50, 50, 50, 0.9) 0%, rgba(30, 30, 30, 0.9) 100%);
+    border-left: 3px solid #00d9ff;
+}
+
+#entry:selected #text {
+    color: #ffffff;
+}
+
+#img {
+    margin-right: 10px;
+}
