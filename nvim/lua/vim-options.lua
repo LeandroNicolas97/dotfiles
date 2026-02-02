@@ -115,4 +115,51 @@ vim.keymap.set("n", "<C-S-Right>", "<Cmd>vertical resize +2<CR>", { noremap = tr
 vim.keymap.set("n", "<C-S-Left>", "<Cmd>vertical resize -2<CR>", { noremap = true, silent = true, desc = "Disminuir ancho de la ventana" })  -- Disminuir ancho
 
 -- remap to replace words
---vim.keymap.set('n', '<leader>p', ':%s/\\<<C-r><C-w>\\>//c<Left><Left>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>p', ':%s/\\<<C-r><C-w>\\>//c<Left><Left>', { noremap = true, silent = true })
+
+-- Toggle diagnósticos (warnings y errores)
+local diagnostics_visible = true
+local function toggle_diagnostics()
+    diagnostics_visible = not diagnostics_visible
+    if diagnostics_visible then
+        vim.diagnostic.enable()
+        print("Diagnósticos habilitados")
+    else
+        vim.diagnostic.disable()
+        print("Diagnósticos deshabilitados")
+    end
+end
+
+-- Toggle solo warnings (mantiene errores visibles)
+local show_warnings = true
+local function toggle_warnings()
+    show_warnings = not show_warnings
+    if show_warnings then
+        vim.diagnostic.config({
+            virtual_text = {
+                prefix = '●',
+                source = "if_many",
+                severity = { min = vim.diagnostic.severity.WARN },
+            },
+            signs = {
+                severity = { min = vim.diagnostic.severity.WARN },
+            },
+        })
+        print("Warnings habilitados")
+    else
+        vim.diagnostic.config({
+            virtual_text = {
+                prefix = '●',
+                source = "if_many",
+                severity = { min = vim.diagnostic.severity.ERROR },
+            },
+            signs = {
+                severity = { min = vim.diagnostic.severity.ERROR },
+            },
+        })
+        print("Warnings ocultos (solo errores visibles)")
+    end
+end
+
+vim.keymap.set('n', '<leader>dd', toggle_diagnostics, { noremap = true, silent = true, desc = "Toggle todos los diagnósticos" })
+vim.keymap.set('n', '<leader>dw', toggle_warnings, { noremap = true, silent = true, desc = "Toggle warnings (mantiene errores)" })

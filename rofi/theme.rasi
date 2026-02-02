@@ -1,17 +1,17 @@
 /**
- * Custom Rofi Theme - Matching Waybar Colors
- * Warm beige/wheat color scheme
+ * Custom Rofi Theme - Transparent Dark (Matching Kitty)
+ * Dracula-inspired color scheme with transparency
  */
 
 * {
-    bg-col:  #F5E6D3;
-    bg-col-light: #FFF8DC;
-    border-col: #D2B48C;
-    selected-col: #F5DEB3;
-    blue: #8B7355;
-    fg-col: #3D2817;
-    fg-col2: #9B8268;
-    grey: #7C6854;
+    bg-col:  #141414D9;
+    bg-col-light: #1e1e1eD9;
+    border-col: #bd93f9;
+    selected-col: #44475aD9;
+    blue: #8be9fd;
+    fg-col: #f8f8f2;
+    fg-col2: #bfbfbf;
+    grey: #6272a4;
     width: 600;
     font: "FiraCode Nerd Font 12";
 }
