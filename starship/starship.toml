@@ -26,7 +26,7 @@ disabled = true
 
 # Directorio actual (mostrar ruta con varios niveles)
 [directory]
-truncation_length = 3
+truncation_length = 0
 truncate_to_repo = false
 style = "bold cyan"
 format = "[$path]($style)"
