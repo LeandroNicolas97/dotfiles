@@ -1,9 +1,9 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 25,
-    "spacing": 2,
-    "margin-bottom":-10,
+    "height": 20,
+    "spacing": 1,
+    "margin-bottom":-12,
 
     "modules-left": [
         "custom/distro-icon",
@@ -88,13 +88,13 @@
     },
 
     "tray": {
-        "icon-size": 18,
+        "icon-size": 14,
         "spacing": 10
     },
 
     "wlr/taskbar": {
         "format": "{icon}",
-        "icon-size": 22,
+        "icon-size": 20,
         "icon-theme": "Numix-Circle",
         "tooltip": false,
         "on-click": "activate",
