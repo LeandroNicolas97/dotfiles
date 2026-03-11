@@ -75,3 +75,7 @@ if command -v fastfetch &> /dev/null; then
     RANDOM_LOGO=$(~/.config/fastfetch/random-logo.sh)
     fastfetch --logo "$RANDOM_LOGO" --logo-type kitty-direct --logo-width 50 --logo-height 25
 fi
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PATH="$HOME/.cargo/bin:$PATH"
