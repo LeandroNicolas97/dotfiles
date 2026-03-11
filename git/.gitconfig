@@ -1,3 +1,9 @@
 [user]
 	email = leandroatero97@gmail.com
 	name = Leandro Nicolas
+[core]
+	editor = nvim
+	pager = less -XFR
+
+[includeIf "gitdir:~/git/"]
+	path = ~/.gitconfig-work

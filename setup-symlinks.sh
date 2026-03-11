@@ -32,6 +32,8 @@ backup_and_link "$PWD/mako" "$HOME/.config/mako"
 backup_and_link "$PWD/btop" "$HOME/.config/btop"
 backup_and_link "$PWD/starship/starship.toml" "$HOME/.config/starship.toml"
 backup_and_link "$PWD/zsh/.zshrc" "$HOME/.zshrc"
+backup_and_link "$PWD/git/.gitconfig" "$HOME/.gitconfig"
+backup_and_link "$PWD/git/.gitconfig-work" "$HOME/.gitconfig-work"
 
 echo ""
 echo "=== Symlinks creados ==="
