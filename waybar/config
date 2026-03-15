@@ -23,7 +23,7 @@
         "bluetooth",
         "network",
         "battery",
-        "clock"
+        "custom/clock"
     ],
 
     "hyprland/workspaces": {
@@ -64,8 +64,9 @@
         "tooltip": false
     },
 
-    "clock": {
-        "format": "󰥔 {:%H:%M   %d/%m/%Y}",
+    "custom/clock": {
+        "exec": "date +'󰥔 %H:%M   %d/%m/%Y'",
+        "interval": 30,
         "tooltip": false
     },
 
@@ -91,9 +92,9 @@
 
     "network": {
         "on-click": "nm-connection-editor",
-        "format-wifi": "󰖩 {essid}",
-        "format-ethernet": "󰈀 {ifname}",
-        "format-disconnected": "󰖪 Disconnected",
+        "format-wifi": "󰖩 {signalStrength}%",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
         "tooltip": false
     },
 

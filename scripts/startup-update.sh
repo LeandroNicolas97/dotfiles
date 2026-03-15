@@ -9,6 +9,18 @@ notify() {
     notify-send -a "Sistema" "$1" "$2" -i "$3" 2>/dev/null || true
 }
 
+# Esperar conexión a internet (máximo 60 segundos)
+for i in $(seq 1 15); do
+    ping -c 1 -W 1 archlinux.org > /dev/null 2>&1 && break
+    sleep 1
+done
+
+if ! ping -c 1 -W 1 archlinux.org > /dev/null 2>&1; then
+    notify "Sin conexión" "No se pudo conectar a internet, omitiendo actualización" "network-offline"
+    discord $DISCORD_FLAGS &
+    exit 0
+fi
+
 # Actualizar el sistema (incluye AUR)
 notify "Actualizando sistema..." "Ejecutando yay -Syu" "system-software-update"
 
