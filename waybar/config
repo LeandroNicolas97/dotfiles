@@ -17,9 +17,11 @@
     ],
 
     "modules-right": [
-        "wireplumber",
-        "network",
+        "cpu",
         "memory",
+        "wireplumber",
+        "bluetooth",
+        "network",
         "battery",
         "clock"
     ],
@@ -69,7 +71,7 @@
 
     "cpu": {
         "interval": 1,
-        "format": " {usage}%",
+        "format": "󰵠 {usage}%",
         "tooltip": false
     },
 
@@ -79,8 +81,16 @@
         "tooltip": false
     },
 
+    "bluetooth": {
+        "format": "󰂯 {status}",
+        "format-connected": "󰂱 {device_alias}",
+        "format-disabled": "󰂲",
+        "on-click": "kitty bluetuith",
+        "tooltip": false
+    },
+
     "network": {
-        "on-click": "alacritty -e nmtui",
+        "on-click": "nm-connection-editor",
         "format-wifi": "󰖩 {essid}",
         "format-ethernet": "󰈀 {ifname}",
         "format-disconnected": "󰖪 Disconnected",
