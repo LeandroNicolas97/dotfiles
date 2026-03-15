@@ -1,0 +1,1 @@
+/home/leandro/dotfiles/scripts/startup-update.sh
