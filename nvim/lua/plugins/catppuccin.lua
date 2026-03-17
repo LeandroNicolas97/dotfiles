@@ -1,0 +1,25 @@
+return {
+    -- "catppuccin/nvim",
+    -- lazy = false,
+    -- name = "catppuccin",
+    -- priority = 1000,
+    -- config = function()
+    --     require("catppuccin").setup({
+    --         transparent_background = true,  -- Asegúrate de que esta opción esté activada
+    --         styles = {
+    --             keywords = { "bold" },
+    --             functions = { "italic" },
+    --         },
+    --         integrations = {
+    --             nvimtree = {
+    --                 enabled = true,
+    --                 transparent_panel = true,  -- Asegúrate de que el panel de nvim-tree sea transparente
+    --             },
+    --             telescope = true,  -- Integración con Telescope
+    --             -- Agrega otras integraciones si usas otros plugins
+    --         },
+    --     })
+    --
+    --     vim.cmd.colorscheme("catppuccin")
+    -- end,
+}

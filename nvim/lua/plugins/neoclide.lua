@@ -1,0 +1,35 @@
+return {
+  -- {
+  --   'neoclide/coc.nvim',
+  --   branch = 'release',
+  --   config = function()
+  --     -- Configuración básica inicial
+  --     vim.g.coc_global_extensions = {
+  --       'coc-clangd',
+  --       'coc-snippets',
+  --       'coc-pairs',
+  --     }
+  --     -- Configuración esencial
+  --     vim.g.coc_user_config = {
+  --       ["clangd.arguments"] = {
+  --         "--compile-commands-dir=build",
+  --         "--background-index",
+  --       }
+  --     }
+  --     -- Configuración básica de editor
+  --     vim.opt.updatetime = 300
+  --     vim.opt.signcolumn = 'yes'
+  --     -- Mapeo básico de teclas
+  --     local keyset = vim.keymap.set
+  --     -- Autocompletado con Tab
+  --     local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+  --     keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : "<TAB>"', opts)
+  --     keyset("i", "<S-TAB>", 'coc#pum#visible() ? coc#pum#prev(1) : "<S-TAB>"', opts)
+  --     -- Enter para confirmar
+  --     keyset("i", "<cr>", 'coc#pum#visible() ? coc#pum#confirm() : "<CR>"', opts)
+  --     -- Navegación básica
+  --     keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
+  --     keyset("n", "K", ":call CocActionAsync('doHover')<CR>", {silent = true, noremap = true})
+  --   end
+  -- }
+}
