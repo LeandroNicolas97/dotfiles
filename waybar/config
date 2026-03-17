@@ -19,6 +19,7 @@
     "modules-right": [
         "wireplumber",
         "network",
+        "cpu",
         "memory",
         "battery",
         "clock"
@@ -69,13 +70,13 @@
 
     "cpu": {
         "interval": 1,
-        "format": " {usage}%",
+        "format": "  {usage}%",
         "tooltip": false
     },
 
     "memory": {
         "interval": 1,
-        "format": "󰍛 {percentage}%",
+        "format": "  {percentage}%",
         "tooltip": false
     },
 
