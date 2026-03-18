@@ -5,6 +5,7 @@ return {
         opts = {
             -- Configuración de formateadores por tipo de archivo
             formatters_by_ft = {
+                rust = { "rustfmt" },
                 c = { "clang_format" },
                 cpp = { "clang_format" },
                 h = { "clang_format" },

@@ -8,6 +8,8 @@ return {
                 ensure_installed = {
                     "python",
                     "lua",
+                    "rust",
+                    "toml",
                     "c",
                     "cpp",           -- Agregado para mejor soporte de C++
                     "javascript",
