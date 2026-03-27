@@ -108,11 +108,11 @@ vim.keymap.set('n', '<leader>6', function() harpoon:list():select(6) end)
 -- vim.keymap.set('n', '<Tab>', function() harpoon:list():prev() end)
 -- vim.keymap.set('n', '<S-Tab>', function() harpoon:list():next() end)
 
--- Redimensionar ventanas con Control + Shift + flechas
-vim.keymap.set("n", "<C-S-Down>", "<Cmd>resize -2<CR>", { noremap = true, silent = true, desc = "Disminuir altura de la ventana" })  -- Disminuir alto
-vim.keymap.set("n", "<C-S-Up>", "<Cmd>resize +2<CR>", { noremap = true, silent = true, desc = "Aumentar altura de la ventana" })   -- Aumentar alto
-vim.keymap.set("n", "<C-S-Right>", "<Cmd>vertical resize +2<CR>", { noremap = true, silent = true, desc = "Aumentar ancho de la ventana" })  -- Aumentar ancho
-vim.keymap.set("n", "<C-S-Left>", "<Cmd>vertical resize -2<CR>", { noremap = true, silent = true, desc = "Disminuir ancho de la ventana" })  -- Disminuir ancho
+-- Redimensionar ventanas con Alt + j/k/l/i
+vim.keymap.set("n", "<A-k>", "<Cmd>resize -2<CR>",          { noremap = true, silent = true, desc = "Disminuir altura" })
+vim.keymap.set("n", "<A-i>", "<Cmd>resize +2<CR>",          { noremap = true, silent = true, desc = "Aumentar altura" })
+vim.keymap.set("n", "<A-l>", "<Cmd>vertical resize +2<CR>", { noremap = true, silent = true, desc = "Aumentar ancho" })
+vim.keymap.set("n", "<A-j>", "<Cmd>vertical resize -2<CR>", { noremap = true, silent = true, desc = "Disminuir ancho" })
 
 -- remap to replace words
 vim.keymap.set('n', '<leader>p', ':%s/\\<<C-r><C-w>\\>//c<Left><Left>', { noremap = true, silent = true })
@@ -163,9 +163,3 @@ end
 
 vim.keymap.set('n', '<leader>dd', toggle_diagnostics, { noremap = true, silent = true, desc = "Toggle todos los diagnósticos" })
 vim.keymap.set('n', '<leader>dw', toggle_warnings, { noremap = true, silent = true, desc = "Toggle warnings (mantiene errores)" })
-
--- Redimensionar ventanas con Control + Shift + j/k/l/i
-vim.keymap.set("n", "<C-S-j>", "<Cmd>vertical resize -2<CR>", { noremap = true, silent = true, desc = "Disminuir ancho (izquierda)" })
-vim.keymap.set("n", "<C-S-k>", "<Cmd>resize -2<CR>",          { noremap = true, silent = true, desc = "Disminuir alto (abajo)" })
-vim.keymap.set("n", "<C-S-l>", "<Cmd>vertical resize +2<CR>", { noremap = true, silent = true, desc = "Aumentar ancho (derecha)" })
-vim.keymap.set("n", "<C-S-i>", "<Cmd>resize +2<CR>",          { noremap = true, silent = true, desc = "Aumentar alto (arriba)" })
