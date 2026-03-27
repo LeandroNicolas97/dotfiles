@@ -163,3 +163,9 @@ end
 
 vim.keymap.set('n', '<leader>dd', toggle_diagnostics, { noremap = true, silent = true, desc = "Toggle todos los diagnósticos" })
 vim.keymap.set('n', '<leader>dw', toggle_warnings, { noremap = true, silent = true, desc = "Toggle warnings (mantiene errores)" })
+
+-- Redimensionar ventanas con Control + Shift + j/k/l/i
+vim.keymap.set("n", "<C-S-j>", "<Cmd>vertical resize -2<CR>", { noremap = true, silent = true, desc = "Disminuir ancho (izquierda)" })
+vim.keymap.set("n", "<C-S-k>", "<Cmd>resize -2<CR>",          { noremap = true, silent = true, desc = "Disminuir alto (abajo)" })
+vim.keymap.set("n", "<C-S-l>", "<Cmd>vertical resize +2<CR>", { noremap = true, silent = true, desc = "Aumentar ancho (derecha)" })
+vim.keymap.set("n", "<C-S-i>", "<Cmd>resize +2<CR>",          { noremap = true, silent = true, desc = "Aumentar alto (arriba)" })
