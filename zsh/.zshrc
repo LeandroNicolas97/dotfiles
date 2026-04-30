@@ -79,3 +79,23 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# opencode
+export PATH=/home/leandro/.opencode/bin:$PATH
+
+# ZMK cornev3
+_ZMK_DIR="$HOME/leandro-git/cornev3-hardware-test"
+_ZMK_CFG="$_ZMK_DIR/config"
+
+zmk-right() { west build -s zmk/app -b nice_nano/nrf52840/zmk -d "$_ZMK_DIR/build/cornev3_right" -- -DSHIELD="cornev3_right" -DZMK_CONFIG="$_ZMK_CFG" -DSNIPPET=zmk-usb-logging; }
+zmk-left()  { west build -s zmk/app -b nice_nano/nrf52840/zmk -d "$_ZMK_DIR/build/cornev3_left"  -- -DSHIELD="cornev3_left"  -DZMK_CONFIG="$_ZMK_CFG" -DSNIPPET=zmk-usb-logging; }
+zmk-both()  { zmk-left && zmk-right; }
+
+zmk-flash() {
+    local side=${1:-right}
+    local uf2="$_ZMK_DIR/build/cornev3_${side}/zephyr/zmk.uf2"
+    local dev=$(lsblk -o NAME,LABEL -rn | awk '/NICENANO/{print "/dev/"$1}')
+    [[ -z "$dev" ]] && echo "NICENANO no encontrado. Hacé doble tap en reset." && return 1
+    udisksctl mount -b "$dev" 2>/dev/null
+    cp "$uf2" /run/media/leandro/NICENANO/ && echo "Flasheado: $side"
+}
