@@ -70,8 +70,16 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export PATH=$PATH:/opt/ba2-toolchain/bin
 
+# ============================================
+# ZMK — cornev3 (build & flash helpers)
+# ============================================
+if [ -f "$HOME/dotfiles/zsh/zmk-corne.zsh" ]; then
+    source "$HOME/dotfiles/zsh/zmk-corne.zsh"
+fi
+
 # Fastfetch con logo aleatorio
 if command -v fastfetch &> /dev/null; then
     RANDOM_LOGO=$(~/.config/fastfetch/random-logo.sh)
     fastfetch --logo "$RANDOM_LOGO" --logo-type kitty-direct --logo-width 50 --logo-height 25
 fi
+export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
