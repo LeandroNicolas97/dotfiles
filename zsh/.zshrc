@@ -60,8 +60,8 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export LANG=es_CL.UTF-8
-export LC_ALL=es_CL.UTF-8
+#export LANG=es_CL.UTF-8
+#export LC_ALL=es_CL.UTF-8
 export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
 export ESP_IDF_PATH=~/git/oxycontroller/deps/esp-idf
 export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
@@ -84,16 +84,23 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=/home/leandro/.opencode/bin:$PATH
 
 # ZMK cornev3
-_ZMK_DIR="$HOME/leandro-git/cornev3-hardware-test"
+_ZMK_DIR="$HOME/leandro-git/cornev3-firmware"
 _ZMK_CFG="$_ZMK_DIR/config"
 
-zmk-right() { west build -s zmk/app -b nice_nano/nrf52840/zmk -d "$_ZMK_DIR/build/cornev3_right" -- -DSHIELD="cornev3_right" -DZMK_CONFIG="$_ZMK_CFG" -DSNIPPET=zmk-usb-logging; }
-zmk-left()  { west build -s zmk/app -b nice_nano/nrf52840/zmk -d "$_ZMK_DIR/build/cornev3_left"  -- -DSHIELD="cornev3_left"  -DZMK_CONFIG="$_ZMK_CFG" -DSNIPPET=zmk-usb-logging; }
-zmk-both()  { zmk-left && zmk-right; }
+# BLE (split inalambrico)
+zmk-left()         { west build -s zmk/app -b nice_nano/nrf52840/zmk -d "$_ZMK_DIR/build/cornev3_left"        -- -DSHIELD="cornev3_left"                                 -DZMK_CONFIG="$_ZMK_CFG"; }
+zmk-right()        { west build -s zmk/app -b nice_nano/nrf52840/zmk -d "$_ZMK_DIR/build/cornev3_right"       -- -DSHIELD="cornev3_right nice_view_adapter nice_view"     -DZMK_CONFIG="$_ZMK_CFG"; }
+zmk-both()         { zmk-left && zmk-right; }
+
+# Wired (split TRRS/UART)
+zmk-left-wired()   { west build -s zmk/app -b nice_nano/nrf52840/zmk -d "$_ZMK_DIR/build/cornev3_left_wired"  -- -DSHIELD="cornev3_left_wired"                            -DZMK_CONFIG="$_ZMK_CFG"; }
+zmk-right-wired()  { west build -s zmk/app -b nice_nano/nrf52840/zmk -d "$_ZMK_DIR/build/cornev3_right_wired" -- -DSHIELD="cornev3_right_wired nice_view_adapter nice_view" -DZMK_CONFIG="$_ZMK_CFG"; }
+zmk-both-wired()   { zmk-left-wired && zmk-right-wired; }
 
 zmk-flash() {
     local side=${1:-right}
     local uf2="$_ZMK_DIR/build/cornev3_${side}/zephyr/zmk.uf2"
+    [[ ! -f "$uf2" ]] && echo "UF2 no encontrado: $uf2" && return 1
     local dev=$(lsblk -o NAME,LABEL -rn | awk '/NICENANO/{print "/dev/"$1}')
     [[ -z "$dev" ]] && echo "NICENANO no encontrado. Hacé doble tap en reset." && return 1
     udisksctl mount -b "$dev" 2>/dev/null
