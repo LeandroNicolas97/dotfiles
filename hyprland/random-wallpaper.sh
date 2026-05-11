@@ -2,8 +2,8 @@
 
 pkill swaybg
 
-WALLPAPERS_DIR=~/Pictures/Wallpapers
-VERTICAL_DIR=~/Pictures/Wallpapers/vertical
+WALLPAPERS_DIR=~/dotfiles/wallpapers
+VERTICAL_DIR=~/dotfiles/wallpapers/vertical
 
 pick_random() {
     find "$1" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | shuf -n 1
@@ -19,7 +19,11 @@ else
     WP_SAMSUNG=$(pick_random "$WALLPAPERS_DIR")
 fi
 
+# DP-1 en Lenovo, DP-2 en desktop
+SAMSUNG_OUTPUT=$(hyprctl monitors | grep -oE 'DP-[0-9]+' | head -1)
+SAMSUNG_OUTPUT=${SAMSUNG_OUTPUT:-DP-2}
+
 swaybg \
-    -o eDP-1    -i "$WP_LAPTOP"  -m fill \
-    -o HDMI-A-1 -i "$WP_GEAR"   -m fill \
-    -o DP-2     -i "$WP_SAMSUNG" -m fill &
+    -o eDP-1             -i "$WP_LAPTOP"  -m fill \
+    -o HDMI-A-1          -i "$WP_GEAR"   -m fill \
+    -o "$SAMSUNG_OUTPUT" -i "$WP_SAMSUNG" -m fill &

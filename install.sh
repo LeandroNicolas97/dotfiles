@@ -224,8 +224,19 @@ create_symlink "$PWD/mako" "$HOME/.config/mako"
 create_symlink "$PWD/btop" "$HOME/.config/btop"
 create_symlink "$PWD/starship/starship.toml" "$HOME/.config/starship.toml"
 create_symlink "$PWD/zsh/.zshrc" "$HOME/.zshrc"
+create_symlink "$PWD/git/.gitconfig" "$HOME/.gitconfig"
 mkdir -p "$HOME/Pictures"
 create_symlink "$PWD/wallpapers" "$HOME/Pictures/Wallpapers"
+
+# Crear carpeta ~/git/ para proyectos del trabajo
+mkdir -p "$HOME/git"
+
+# Recordar crear ~/.gitconfig-work con credenciales del trabajo
+if [ ! -f "$HOME/.gitconfig-work" ]; then
+    print_warning "Falta ~/.gitconfig-work con credenciales del trabajo."
+    echo "  Crealo con:"
+    echo '  echo "[user]\n\temail = leandro.atero@innovex.cl\n\tname = Leandro Atero" > ~/.gitconfig-work'
+fi
 
 print_success "Symlinks configurados"
 
