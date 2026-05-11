@@ -82,8 +82,6 @@ ranger
 ripgrep
 rofi
 sddm
-sddm-astronaut-theme
-sddm-silent-theme
 slurp
 spotify
 starship
