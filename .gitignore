@@ -17,3 +17,6 @@ __pycache__/
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+
+# Config específica por máquina (toolchain paths, etc.)
+.zshrc.local

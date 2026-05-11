@@ -152,7 +152,40 @@ $AUR_HELPER -S --needed --noconfirm $AUR_PACKAGES 2>&1 | grep -v "warning: setlo
 print_success "Paquetes AUR instalados"
 
 # ============================================================================
-# PASO 4: Configurar symlinks
+# PASO 4: Instalar Oh My Zsh y plugins
+# ============================================================================
+
+print_step "Instalando Oh My Zsh y plugins de Zsh"
+
+# Instalar Oh My Zsh si no está
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    print_warning "Instalando Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    # El instalador reemplaza .zshrc — restauramos el symlink al dotfiles
+    ln -sf "$PWD/zsh/.zshrc" "$HOME/.zshrc"
+    print_success "Oh My Zsh instalado"
+else
+    print_success "Oh My Zsh ya está instalado"
+fi
+
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+# zsh-autosuggestions
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+    print_success "zsh-autosuggestions instalado"
+fi
+
+# zsh-syntax-highlighting
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+    print_success "zsh-syntax-highlighting instalado"
+fi
+
+print_success "Oh My Zsh y plugins listos"
+
+# ============================================================================
+# PASO 5: Configurar symlinks
 # ============================================================================
 
 print_step "Configurando symlinks de dotfiles"
@@ -197,7 +230,7 @@ create_symlink "$PWD/wallpapers" "$HOME/Pictures/Wallpapers"
 print_success "Symlinks configurados"
 
 # ============================================================================
-# PASO 5: Configuraciones adicionales
+# PASO 7: Configuraciones adicionales
 # ============================================================================
 
 print_step "Aplicando configuraciones adicionales"
@@ -221,7 +254,7 @@ chmod +x rofi/applets/bin/*.sh 2>/dev/null || true
 print_success "Configuraciones aplicadas"
 
 # ============================================================================
-# PASO 6: Resumen final
+# PASO 8: Resumen final
 # ============================================================================
 
 echo -e "\n${GREEN}"

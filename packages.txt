@@ -38,10 +38,12 @@ gum
 gvfs
 htop
 hyprland
-hyprland-plugin-hyprexpo
 inetutils
 intel-media-driver
 jq
+kicad
+kicad-library
+kicad-library-3d
 kitty
 lazygit
 linux

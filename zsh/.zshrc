@@ -33,8 +33,8 @@ eval "$(starship init zsh)"
 # ============================================
 
 # Cargar keybindings de fzf (Ctrl+R para historial, Ctrl+T para archivos, Alt+C para directorios)
-if [ -f /etc/profile.d/fzf.zsh ]; then
-  source /etc/profile.d/fzf.zsh
+if command -v fzf &>/dev/null; then
+  eval "$(fzf --zsh)"
 fi
 
 # Configuración de FZF
@@ -51,7 +51,6 @@ export FZF_DEFAULT_OPTS="
 export FZF_CTRL_R_OPTS="--exact"
 
 export TERM=xterm-kitty
-export TERM=xterm-kitty
 
 # Activar entorno virtual de Python automáticamente
 if [ -f "$HOME/git/oxycontroller/.venv/bin/activate" ]; then
@@ -59,14 +58,10 @@ if [ -f "$HOME/git/oxycontroller/.venv/bin/activate" ]; then
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 #export LANG=es_CL.UTF-8
 #export LC_ALL=es_CL.UTF-8
 export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
 export ESP_IDF_PATH=~/git/oxycontroller/deps/esp-idf
-export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.16.8
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 
 export PATH=$PATH:/opt/ba2-toolchain/bin
 
@@ -75,9 +70,11 @@ if command -v fastfetch &> /dev/null; then
     RANDOM_LOGO=$(~/.config/fastfetch/random-logo.sh)
     fastfetch --logo "$RANDOM_LOGO" --logo-type kitty-direct --logo-width 50 --logo-height 25
 fi
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # opencode
@@ -106,3 +103,7 @@ zmk-flash() {
     udisksctl mount -b "$dev" 2>/dev/null
     cp "$uf2" /run/media/leandro/NICENANO/ && echo "Flasheado: $side"
 }
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# Config específica de esta máquina (no commiteado)
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
