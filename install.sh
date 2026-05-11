@@ -191,6 +191,8 @@ create_symlink "$PWD/mako" "$HOME/.config/mako"
 create_symlink "$PWD/btop" "$HOME/.config/btop"
 create_symlink "$PWD/starship/starship.toml" "$HOME/.config/starship.toml"
 create_symlink "$PWD/zsh/.zshrc" "$HOME/.zshrc"
+mkdir -p "$HOME/Pictures"
+create_symlink "$PWD/wallpapers" "$HOME/Pictures/Wallpapers"
 
 print_success "Symlinks configurados"
 
