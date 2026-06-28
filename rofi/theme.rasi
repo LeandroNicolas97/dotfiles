@@ -1,38 +1,34 @@
 /**
- * Custom Rofi Theme - Matching Waybar Colors
- * Warm beige/wheat color scheme
+ * Custom Rofi Theme - Dark & Transparent
+ * Based on previous beige/wheat layout, now dark glass style
  */
-
 * {
-    bg-col:  #F5E6D3;
-    bg-col-light: #FFF8DC;
-    border-col: #D2B48C;
-    selected-col: #F5DEB3;
-    blue: #8B7355;
-    fg-col: #3D2817;
-    fg-col2: #9B8268;
-    grey: #7C6854;
+    bg-col:  rgba(15, 15, 15, 0.70);
+    bg-col-light: rgba(30, 30, 30, 0.80);
+    border-col: rgba(80, 80, 80, 0.6);
+    selected-col: rgba(60, 60, 60, 0.6);
+    blue: #CCCCCC;
+    fg-col: #ECECEC;
+    fg-col2: #B0B0B0;
+    grey: #808080;
     width: 600;
     font: "FiraCode Nerd Font 12";
 }
-
 element-text, element-icon , mode-switcher {
     background-color: inherit;
     text-color:       inherit;
 }
-
 window {
+    transparency: "real";
     height: 360px;
     border: 2px;
     border-color: @border-col;
     background-color: @bg-col;
     border-radius: 12px;
 }
-
 mainbox {
-    background-color: @bg-col;
+    background-color: transparent;
 }
-
 inputbar {
     children: [prompt,entry];
     background-color: @bg-col-light;
@@ -40,7 +36,6 @@ inputbar {
     padding: 8px;
     margin: 8px;
 }
-
 prompt {
     background-color: @selected-col;
     padding: 8px;
@@ -48,47 +43,39 @@ prompt {
     border-radius: 8px;
     margin: 0px 8px 0px 0px;
 }
-
 textbox-prompt-colon {
     expand: false;
     str: ":";
 }
-
 entry {
     padding: 8px;
     text-color: @fg-col;
     background-color: @bg-col-light;
 }
-
 listview {
     border: 0px 0px 0px;
     padding: 6px 0px 0px;
     margin: 8px 8px 0px 8px;
     columns: 1;
     lines: 8;
-    background-color: @bg-col;
+    background-color: transparent;
 }
-
 element {
     padding: 8px;
-    background-color: @bg-col;
+    background-color: transparent;
     text-color: @fg-col2;
     border-radius: 8px;
 }
-
 element-icon {
     size: 25px;
 }
-
 element selected {
     background-color: @selected-col;
     text-color: @fg-col;
 }
-
 mode-switcher {
     spacing: 0;
 }
-
 button {
     padding: 10px;
     background-color: @bg-col-light;
@@ -96,19 +83,16 @@ button {
     vertical-align: 0.5;
     horizontal-align: 0.5;
 }
-
 button selected {
   background-color: @selected-col;
   text-color: @fg-col;
 }
-
 message {
     background-color: @bg-col-light;
     margin: 2px;
     padding: 2px;
     border-radius: 5px;
 }
-
 textbox {
     padding: 6px;
     margin: 20px 0px 0px 20px;
