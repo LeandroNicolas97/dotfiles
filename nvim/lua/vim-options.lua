@@ -122,10 +122,10 @@ local diagnostics_visible = true
 local function toggle_diagnostics()
     diagnostics_visible = not diagnostics_visible
     if diagnostics_visible then
-        vim.diagnostic.enable()
+        vim.diagnostic.config({ virtual_text = true, signs = true })
         print("Diagnósticos habilitados")
     else
-        vim.diagnostic.disable()
+        vim.diagnostic.config({ virtual_text = false, signs = false })
         print("Diagnósticos deshabilitados")
     end
 end

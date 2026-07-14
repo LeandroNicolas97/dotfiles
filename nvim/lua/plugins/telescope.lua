@@ -12,7 +12,10 @@ return {
                     sorting_strategy = "descending", -- Ahora los archivos más significativos aparecen primero
                     layout_config = {
                         prompt_position = "bottom", -- Mueve el cursor a la parte inferior
-                    }
+                    },
+                    preview = {
+                        treesitter = false,
+                    },
                 },
                 pickers = {
                     find_files = {
