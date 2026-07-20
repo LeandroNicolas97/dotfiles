@@ -19,11 +19,10 @@ else
     WP_SAMSUNG=$(pick_random "$WALLPAPERS_DIR")
 fi
 
-# DP-1 en Lenovo, DP-2 en desktop
-SAMSUNG_OUTPUT=$(hyprctl monitors | grep -oE 'DP-[0-9]+' | head -1)
-SAMSUNG_OUTPUT=${SAMSUNG_OUTPUT:-DP-2}
+GEAR_OUTPUT=$(hyprctl monitors -j | jq -r '.[].name' | grep -E '^DP-[0-9]+$' | head -1)
+GEAR_OUTPUT=${GEAR_OUTPUT:-DP-2}
 
 swaybg \
-    -o eDP-1             -i "$WP_LAPTOP"  -m fill \
-    -o HDMI-A-1          -i "$WP_GEAR"   -m fill \
-    -o "$SAMSUNG_OUTPUT" -i "$WP_SAMSUNG" -m fill &
+    -o eDP-1      -i "$WP_LAPTOP"  -m fill \
+    -o HDMI-A-1   -i "$WP_SAMSUNG" -m fill \
+    -o "$GEAR_OUTPUT" -i "$WP_GEAR" -m fill &
